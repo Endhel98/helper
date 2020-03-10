@@ -19,6 +19,15 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.more_vert,
+              color: Colors.white,
+            ),
+            onPressed: () {},
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

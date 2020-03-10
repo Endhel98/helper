@@ -11,8 +11,13 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text("Helper"),
+        backgroundColor: Colors.lightBlue,
+        title: Text(
+          "Helper",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
@@ -20,8 +25,11 @@ class _MainPageState extends State<MainPage> {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => ClassPage()));
         },
-        backgroundColor: Colors.blue,
-        child: Icon(Icons.add),
+        backgroundColor: Colors.lightBlue,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
     );
   }

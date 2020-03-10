@@ -44,49 +44,68 @@ class _ClassPageState extends State<ClassPage> {
               padding: EdgeInsets.only(top: 20),
               child: TextField(
                 decoration: InputDecoration(
+                  icon: Icon(
+                    Icons.school,
+                    color: Colors.lightGreen,
+                  ),
                   hintText: "Disciplina",
                   hintStyle: TextStyle(fontSize: 20),
                   fillColor: Colors.grey[200],
                   filled: true,
                   border: InputBorder.none,
                 ),
+                style: TextStyle(fontSize: 20),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
                 decoration: InputDecoration(
-                  icon: Icon(Icons.remove),
+                  icon: Icon(
+                    Icons.person,
+                    color: Colors.red,
+                  ),
                   hintText: "Professor",
                   hintStyle: TextStyle(fontSize: 20),
                   fillColor: Colors.grey[200],
                   filled: true,
                   border: InputBorder.none,
                 ),
+                style: TextStyle(fontSize: 20),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
                 decoration: InputDecoration(
+                  icon: Icon(
+                    Icons.local_library,
+                    color: Colors.yellow,
+                  ),
                   hintText: "Sala",
                   hintStyle: TextStyle(fontSize: 20),
                   fillColor: Colors.grey[200],
                   filled: true,
                   border: InputBorder.none,
                 ),
+                style: TextStyle(fontSize: 20),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
                 decoration: InputDecoration(
+                  icon: Icon(
+                    Icons.watch_later,
+                    color: Colors.purple,
+                  ),
                   hintText: "Horário",
                   hintStyle: TextStyle(fontSize: 20),
                   fillColor: Colors.grey[200],
                   filled: true,
                   border: InputBorder.none,
                 ),
+                style: TextStyle(fontSize: 20),
               ),
             )
           ],

@@ -11,11 +11,11 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.lightBlue,
         title: Text(
           "Helper",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         centerTitle: true,

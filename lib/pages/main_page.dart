@@ -14,6 +14,17 @@ class _MainPageState extends State<MainPage> {
   List _toDoList = [];
 
   @override
+  void initState() {
+    super.initState();
+
+    _readData().then((data) {
+      setState(() {
+        _toDoList = json.decode(data);
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

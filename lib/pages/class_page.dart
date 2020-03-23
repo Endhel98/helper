@@ -4,10 +4,6 @@ import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 
 class ClassPage extends StatefulWidget {
-  final List toDoList;
-
-  ClassPage({this.toDoList});
-
   @override
   _ClassPageState createState() => _ClassPageState();
 }
@@ -17,6 +13,18 @@ class _ClassPageState extends State<ClassPage> {
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
   final _hourController = TextEditingController();
+  List _toDoList = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _readData().then((data) {
+      setState(() {
+        _toDoList = json.decode(data);
+      });
+    });
+  }
 
   void _addToDo() {
     setState(() {
@@ -25,7 +33,7 @@ class _ClassPageState extends State<ClassPage> {
       newToDo["professor"] = _professorController.text;
       newToDo["classRom"] = _classRomController.text;
       newToDo["hour"] = _hourController.text;
-      widget.toDoList.add(newToDo);
+      _toDoList.add(newToDo);
       _saveData();
     });
   }
@@ -54,7 +62,7 @@ class _ClassPageState extends State<ClassPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _addToDo();
-          Navigator.pop(context, widget.toDoList);
+          Navigator.pop(context, _toDoList);
         },
         backgroundColor: Colors.white,
         child: Icon(
@@ -151,12 +159,12 @@ class _ClassPageState extends State<ClassPage> {
   }
 
   Future<File> _saveData() async {
-    String data = json.encode(widget.toDoList);
+    String data = json.encode(_toDoList);
     final file = await _getFile();
     return file.writeAsString(data);
   }
 
-  Future<String> readData() async {
+  Future<String> _readData() async {
     try {
       final file = await _getFile();
       return file.readAsString();

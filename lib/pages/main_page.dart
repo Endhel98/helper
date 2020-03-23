@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:helper/pages/class_page.dart';
 import 'package:path_provider/path_provider.dart';
@@ -11,7 +10,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  
   List _toDoList = [];
+  Map<String, dynamic> _lastRemoved;
+  int _lastRemovedPos;
 
   @override
   void initState() {
@@ -58,7 +60,17 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       extendBodyBehindAppBar: true,
+      body: ListView.builder(
+        padding: EdgeInsets.only(top: 10.0),
+        itemBuilder: buildItem,
+      ),
     );
+  }
+
+  Widget buildItem(context, index) {
+    return ListTile(
+        //title: Text("teste"),
+        );
   }
 
   Future<File> _getFile() async {

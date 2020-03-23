@@ -1,11 +1,35 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
 class ClassPage extends StatefulWidget {
+  final List toDoList;
+
+  ClassPage({this.toDoList});
+
   @override
   _ClassPageState createState() => _ClassPageState();
 }
 
 class _ClassPageState extends State<ClassPage> {
+  final _classController = TextEditingController();
+  final _professorController = TextEditingController();
+  final _classRomController = TextEditingController();
+  final _hourController = TextEditingController();
+
+  void _addToDo() {
+    setState(() {
+      Map<String, dynamic> newToDo = Map();
+      newToDo["class"] = _classController.text;
+      newToDo["professor"] = _professorController.text;
+      newToDo["classRom"] = _classRomController.text;
+      newToDo["hour"] = _hourController.text;
+      widget.toDoList.add(newToDo);
+      _saveData();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +52,10 @@ class _ClassPageState extends State<ClassPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          _addToDo();
+          Navigator.pop(context, widget.toDoList);
+        },
         backgroundColor: Colors.white,
         child: Icon(
           Icons.save,
@@ -43,6 +70,7 @@ class _ClassPageState extends State<ClassPage> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
+                controller: _classController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.school,
@@ -60,6 +88,7 @@ class _ClassPageState extends State<ClassPage> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
+                controller: _professorController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.person,
@@ -77,6 +106,7 @@ class _ClassPageState extends State<ClassPage> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
+                controller: _classRomController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.local_library,
@@ -94,6 +124,7 @@ class _ClassPageState extends State<ClassPage> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
+                controller: _hourController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.watch_later,
@@ -112,5 +143,25 @@ class _ClassPageState extends State<ClassPage> {
         ),
       ),
     );
+  }
+
+  Future<File> _getFile() async {
+    final directory = await getApplicationDocumentsDirectory();
+    return File("${directory.path}/data.json");
+  }
+
+  Future<File> _saveData() async {
+    String data = json.encode(widget.toDoList);
+    final file = await _getFile();
+    return file.writeAsString(data);
+  }
+
+  Future<String> readData() async {
+    try {
+      final file = await _getFile();
+      return file.readAsString();
+    } catch (e) {
+      return null;
+    }
   }
 }

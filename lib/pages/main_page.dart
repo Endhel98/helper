@@ -53,8 +53,35 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget buildItem(context, index) {
-    return ListTile(
-      title: Text(toDoList[index]["class"]),
+    return Card(
+      child: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              toDoList[index]["class"],
+              style: TextStyle(fontSize: 20, color: Colors.black),
+            ),
+            Text(
+              toDoList[index]["professor"],
+              style: TextStyle(fontSize: 18, color: Colors.grey),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  toDoList[index]["classRom"],
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+                Text(
+                  toDoList[index]["hour"],
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 

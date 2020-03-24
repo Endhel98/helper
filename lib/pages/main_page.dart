@@ -54,34 +54,84 @@ class _MainPageState extends State<MainPage> {
   Widget buildItem(context, index) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(10),
-              child: Text(
-                toDoList[index]["class"],
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
+              padding: EdgeInsets.all(5),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.school,
+                      color: Colors.lightGreen,
+                    ),
+                  ),
+                  Text(
+                    toDoList[index]["class"],
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 5, left: 10),
-              child: Text(
-                toDoList[index]["professor"],
-                style: TextStyle(fontSize: 18, color: Colors.grey),
+              padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.red,
+                    ),
+                  ),
+                  Text(
+                    toDoList[index]["professor"],
+                    style: TextStyle(fontSize: 18, color: Colors.grey),
+                  ),
+                ],
               ),
             ),
-            Text(
-              toDoList[index]["classRom"],
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+            Padding(
+              padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.local_library,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                  Text(
+                    toDoList[index]["classRom"],
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              toDoList[index]["hour"],
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+            Padding(
+              padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(right: 10),
+                    child: Icon(
+                      Icons.watch_later,
+                      color: Colors.purple,
+                    ),
+                  ),
+                  Text(
+                    toDoList[index]["hour"],
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

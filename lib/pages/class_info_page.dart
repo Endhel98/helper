@@ -40,20 +40,66 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: _editedClass["professor"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.edit),
-                    onPressed: () {},
-                  ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "Professor:",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: _editedClass["professor"],
+                          hintStyle: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 20,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () {},
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "Sala:",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: _editedClass["classRom"],
+                          hintStyle: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 20,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          suffixIcon: IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () {},
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

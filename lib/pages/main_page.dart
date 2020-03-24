@@ -71,7 +71,11 @@ class _MainPageState extends State<MainPage> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ClassInfoPage()),
+          MaterialPageRoute(
+            builder: (context) => ClassInfoPage(
+              toDoClass: _toDoList[index],
+            ),
+          ),
         );
       },
       child: Dismissible(

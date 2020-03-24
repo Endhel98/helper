@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:helper/pages/class_info_page.dart';
 import 'package:helper/pages/class_page.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -66,127 +67,135 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget buildItem(context, index) {
-    return Dismissible(
-      key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
-      background: Container(
-        color: Colors.red,
-        child: Align(
-          alignment: Alignment(-0.9, 0.0),
-          child: Icon(Icons.delete, color: Colors.white),
-        ),
-      ),
-      direction: DismissDirection.startToEnd,
-      child: Card(
-        child: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(5),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(right: 10),
-                      child: Icon(
-                        Icons.school,
-                        color: Colors.lightGreen,
-                      ),
-                    ),
-                    Text(
-                      _toDoList[index]["class"],
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(right: 10),
-                      child: Icon(
-                        Icons.person,
-                        color: Colors.red,
-                      ),
-                    ),
-                    Text(
-                      _toDoList[index]["professor"],
-                      style: TextStyle(fontSize: 18, color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(right: 10),
-                      child: Icon(
-                        Icons.local_library,
-                        color: Colors.yellow,
-                      ),
-                    ),
-                    Text(
-                      _toDoList[index]["classRom"],
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(right: 10),
-                      child: Icon(
-                        Icons.watch_later,
-                        color: Colors.purple,
-                      ),
-                    ),
-                    Text(
-                      _toDoList[index]["hour"],
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ClassInfoPage()),
+        );
+      },
+      child: Dismissible(
+        key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
+        background: Container(
+          color: Colors.red,
+          child: Align(
+            alignment: Alignment(-0.9, 0.0),
+            child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
-      ),
-      onDismissed: (direction) {
-        setState(() {
-          _lastRemoved = Map.from(_toDoList[index]);
-          _lastRemovedPos = index;
-          _toDoList.removeAt(index);
-
-          _saveData();
-
-          final snack = SnackBar(
-            content: Text("Disciplina \"${_lastRemoved['title']}\" removida"),
-            action: SnackBarAction(
-              label: "Desfazer",
-              onPressed: () {
-                setState(() {
-                  _toDoList.insert(_lastRemovedPos, _lastRemoved);
-                  _saveData();
-                });
-              },
+        direction: DismissDirection.startToEnd,
+        child: Card(
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.school,
+                          color: Colors.lightGreen,
+                        ),
+                      ),
+                      Text(
+                        _toDoList[index]["class"],
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.red,
+                        ),
+                      ),
+                      Text(
+                        _toDoList[index]["professor"],
+                        style: TextStyle(fontSize: 18, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.local_library,
+                          color: Colors.yellow,
+                        ),
+                      ),
+                      Text(
+                        _toDoList[index]["classRom"],
+                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.watch_later,
+                          color: Colors.purple,
+                        ),
+                      ),
+                      Text(
+                        _toDoList[index]["hour"],
+                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            duration: Duration(seconds: 2),
-          );
+          ),
+        ),
+        onDismissed: (direction) {
+          setState(() {
+            _lastRemoved = Map.from(_toDoList[index]);
+            _lastRemovedPos = index;
+            _toDoList.removeAt(index);
 
-          Scaffold.of(context).removeCurrentSnackBar();
-          Scaffold.of(context).showSnackBar(snack);
-        });
-      },
+            _saveData();
+
+            final snack = SnackBar(
+              content: Text("Disciplina \"${_lastRemoved['title']}\" removida"),
+              action: SnackBarAction(
+                label: "Desfazer",
+                onPressed: () {
+                  setState(() {
+                    _toDoList.insert(_lastRemovedPos, _lastRemoved);
+                    _saveData();
+                  });
+                },
+              ),
+              duration: Duration(seconds: 2),
+            );
+
+            Scaffold.of(context).removeCurrentSnackBar();
+            Scaffold.of(context).showSnackBar(snack);
+          });
+        },
+      ),
     );
   }
 

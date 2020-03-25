@@ -11,19 +11,32 @@ class ClassInfoPage extends StatefulWidget {
 
 class _ClassInfoPageState extends State<ClassInfoPage> {
   Map _editedClass;
-  bool _enabledProfessor = false;
-  bool _enabledClassRom = false;
-  bool _enabledHour = false;
+  FocusNode professorFocusNode;
+  FocusNode classRomFocusNode;
+  FocusNode firstHourFocusNode;
+  FocusNode secondHourFocusNode;
 
   @override
   void initState() {
     super.initState();
-
+    professorFocusNode = FocusNode();
+    classRomFocusNode = FocusNode();
+    firstHourFocusNode = FocusNode();
+    secondHourFocusNode = FocusNode();
     if (widget.toDoClass == null)
       _editedClass = {};
     else {
       _editedClass = widget.toDoClass;
     }
+  }
+
+  @override
+  void dispose() {
+    professorFocusNode.dispose();
+    classRomFocusNode.dispose();
+    firstHourFocusNode.dispose();
+    secondHourFocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -51,11 +64,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       "Professor:",
                       style: TextStyle(
                         fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Expanded(
                       child: TextField(
-                        enabled: _enabledProfessor,
+                        focusNode: professorFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["professor"],
                           hintStyle: TextStyle(
@@ -76,9 +90,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _enabledProfessor = true;
-                          _enabledHour = false;
-                          _enabledClassRom = false;
+                          FocusScope.of(context)
+                              .requestFocus(professorFocusNode);
                         });
                       },
                     ),
@@ -93,11 +106,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       "Sala:",
                       style: TextStyle(
                         fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Expanded(
                       child: TextField(
-                        enabled: _enabledClassRom,
+                        focusNode: classRomFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["classRom"],
                           hintStyle: TextStyle(
@@ -118,9 +132,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _enabledClassRom = true;
-                          _enabledHour = false;
-                          _enabledProfessor = false;
+                          FocusScope.of(context)
+                              .requestFocus(classRomFocusNode);
                         });
                       },
                     ),
@@ -135,11 +148,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       "1º Dia:",
                       style: TextStyle(
                         fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Expanded(
                       child: TextField(
-                        enabled: _enabledHour,
+                        focusNode: firstHourFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["firstHour"],
                           hintStyle: TextStyle(
@@ -160,9 +174,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _enabledHour = true;
-                          _enabledClassRom = false;
-                          _enabledProfessor = false;
+                          FocusScope.of(context)
+                              .requestFocus(firstHourFocusNode);
                         });
                       },
                     ),
@@ -177,11 +190,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       "2º Dia:",
                       style: TextStyle(
                         fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Expanded(
                       child: TextField(
-                        enabled: _enabledHour,
+                        focusNode: secondHourFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["secondHour"],
                           hintStyle: TextStyle(
@@ -202,9 +216,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _enabledHour = true;
-                          _enabledClassRom = false;
-                          _enabledProfessor = false;
+                          FocusScope.of(context)
+                              .requestFocus(secondHourFocusNode);
                         });
                       },
                     ),

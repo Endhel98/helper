@@ -23,6 +23,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   final _classRomController = TextEditingController();
   final _firstHourController = TextEditingController();
   final _secondHourController = TextEditingController();
+  final _attendanceRoomController = TextEditingController();
+  final _openingHoursrController = TextEditingController();
 
   @override
   void initState() {
@@ -46,6 +48,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     classRoomFocusNode.dispose();
     firstHourFocusNode.dispose();
     secondHourFocusNode.dispose();
+    attendanceRoomFocusNode.dispose();
+    openingHoursFocusNode.dispose();
     super.dispose();
   }
 
@@ -130,8 +134,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
-                        controller: _professorController,
-                        focusNode: professorFocusNode,
+                        controller: _attendanceRoomController,
+                        focusNode: attendanceRoomFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["attendanceRoom"],
                           hintStyle: TextStyle(
@@ -142,6 +146,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           fillColor: Colors.white,
                           border: InputBorder.none,
                         ),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     IconButton(
@@ -173,8 +178,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
-                        controller: _professorController,
-                        focusNode: professorFocusNode,
+                        controller: _openingHoursrController,
+                        focusNode: openingHoursFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["openingHours"],
                           hintStyle: TextStyle(
@@ -185,6 +190,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           fillColor: Colors.white,
                           border: InputBorder.none,
                         ),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     IconButton(

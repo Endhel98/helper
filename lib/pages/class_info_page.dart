@@ -13,9 +13,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   Map _editedClass;
 
   FocusNode professorFocusNode;
-  FocusNode classRomFocusNode;
+  FocusNode classRoomFocusNode;
   FocusNode firstHourFocusNode;
   FocusNode secondHourFocusNode;
+  FocusNode attendanceRoomFocusNode;
+  FocusNode openingHoursFocusNode;
 
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
@@ -26,9 +28,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   void initState() {
     super.initState();
     professorFocusNode = FocusNode();
-    classRomFocusNode = FocusNode();
+    classRoomFocusNode = FocusNode();
     firstHourFocusNode = FocusNode();
     secondHourFocusNode = FocusNode();
+    attendanceRoomFocusNode = FocusNode();
+    openingHoursFocusNode = FocusNode();
     if (widget.toDoClass == null)
       _editedClass = {};
     else {
@@ -39,7 +43,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   @override
   void dispose() {
     professorFocusNode.dispose();
-    classRomFocusNode.dispose();
+    classRoomFocusNode.dispose();
     firstHourFocusNode.dispose();
     secondHourFocusNode.dispose();
     super.dispose();
@@ -50,6 +54,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           _editedClass["class"],
           style: TextStyle(color: Colors.white),
@@ -117,6 +122,95 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 child: Row(
                   children: <Widget>[
                     Text(
+                      "Sala de Atendimento:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        controller: _professorController,
+                        focusNode: professorFocusNode,
+                        decoration: InputDecoration(
+                          hintText: _editedClass["attendanceRoom"],
+                          hintStyle: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 20,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      splashColor: Colors.blue,
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          FocusScope.of(context)
+                              .requestFocus(attendanceRoomFocusNode);
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "Horários de Atendimento:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        controller: _professorController,
+                        focusNode: professorFocusNode,
+                        decoration: InputDecoration(
+                          hintText: _editedClass["openingHours"],
+                          hintStyle: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 20,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      splashColor: Colors.blue,
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          FocusScope.of(context)
+                              .requestFocus(openingHoursFocusNode);
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Divider(
+                color: Colors.grey[500],
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Text(
                       "Sala:",
                       style: TextStyle(
                         fontSize: 20,
@@ -126,7 +220,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     Expanded(
                       child: TextField(
                         controller: _classRomController,
-                        focusNode: classRomFocusNode,
+                        focusNode: classRoomFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["classRom"],
                           hintStyle: TextStyle(
@@ -148,12 +242,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       onPressed: () {
                         setState(() {
                           FocusScope.of(context)
-                              .requestFocus(classRomFocusNode);
+                              .requestFocus(classRoomFocusNode);
                         });
                       },
                     ),
                   ],
                 ),
+              ),
+              Divider(
+                color: Colors.grey[500],
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),

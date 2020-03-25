@@ -163,8 +163,15 @@ class _MainPageState extends State<MainPage> {
                         ),
                       ),
                       Text(
-                        _toDoList[index]["hour"],
+                        _toDoList[index]["firstHour"],
                         style: TextStyle(fontSize: 16, color: Colors.grey),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text(
+                          _toDoList[index]["secondHour"],
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
                       ),
                     ],
                   ),

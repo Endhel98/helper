@@ -12,7 +12,8 @@ class _ClassPageState extends State<ClassPage> {
   final _classController = TextEditingController();
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
-  final _hourController = TextEditingController();
+  final _firstHourController = TextEditingController();
+  final _secondHourController = TextEditingController();
   List _toDoList = [];
 
   @override
@@ -32,7 +33,8 @@ class _ClassPageState extends State<ClassPage> {
       newToDo["class"] = _classController.text;
       newToDo["professor"] = _professorController.text;
       newToDo["classRom"] = _classRomController.text;
-      newToDo["hour"] = _hourController.text;
+      newToDo["firstHour"] = _firstHourController.text;
+      newToDo["secondHour"] = _secondHourController.text;
       _toDoList.add(newToDo);
       _saveData();
     });
@@ -132,13 +134,31 @@ class _ClassPageState extends State<ClassPage> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
-                controller: _hourController,
+                controller: _firstHourController,
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.watch_later,
                     color: Colors.purple,
                   ),
-                  hintText: "Horário",
+                  hintText: "Horário do primeiro dia",
+                  hintStyle: TextStyle(fontSize: 20),
+                  fillColor: Colors.grey[200],
+                  filled: true,
+                  border: InputBorder.none,
+                ),
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: TextField(
+                controller: _secondHourController,
+                decoration: InputDecoration(
+                  icon: Icon(
+                    Icons.watch_later,
+                    color: Colors.purple,
+                  ),
+                  hintText: "Horário do segundo dia",
                   hintStyle: TextStyle(fontSize: 20),
                   fillColor: Colors.grey[200],
                   filled: true,

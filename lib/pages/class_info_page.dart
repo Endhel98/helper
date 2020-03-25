@@ -11,10 +11,16 @@ class ClassInfoPage extends StatefulWidget {
 
 class _ClassInfoPageState extends State<ClassInfoPage> {
   Map _editedClass;
+
   FocusNode professorFocusNode;
   FocusNode classRomFocusNode;
   FocusNode firstHourFocusNode;
   FocusNode secondHourFocusNode;
+
+  final _professorController = TextEditingController();
+  final _classRomController = TextEditingController();
+  final _firstHourController = TextEditingController();
+  final _secondHourController = TextEditingController();
 
   @override
   void initState() {
@@ -51,6 +57,13 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         backgroundColor: Colors.lightBlue,
         iconTheme: IconThemeData(color: Colors.white),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.save,
+          color: Colors.white,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(10),
@@ -69,6 +82,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
+                        controller: _professorController,
                         focusNode: professorFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["professor"],
@@ -111,6 +125,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
+                        controller: _classRomController,
                         focusNode: classRomFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["classRom"],
@@ -153,6 +168,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
+                        controller: _firstHourController,
                         focusNode: firstHourFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["firstHour"],
@@ -195,6 +211,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
+                        controller: _secondHourController,
                         focusNode: secondHourFocusNode,
                         decoration: InputDecoration(
                           hintText: _editedClass["secondHour"],

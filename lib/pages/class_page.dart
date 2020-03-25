@@ -78,7 +78,6 @@ class _ClassPageState extends State<ClassPage> {
             Padding(
               padding: EdgeInsets.only(top: 20),
               child: TextField(
-                enabled: false,
                 controller: _classController,
                 decoration: InputDecoration(
                   icon: Icon(

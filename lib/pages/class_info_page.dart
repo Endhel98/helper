@@ -11,6 +11,9 @@ class ClassInfoPage extends StatefulWidget {
 
 class _ClassInfoPageState extends State<ClassInfoPage> {
   Map _editedClass;
+  bool _enabledProfessor = false;
+  bool _enabledClassRom = false;
+  bool _enabledHour = false;
 
   @override
   void initState() {
@@ -52,6 +55,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
+                        enabled: _enabledProfessor,
                         decoration: InputDecoration(
                           hintText: _editedClass["professor"],
                           hintStyle: TextStyle(
@@ -61,12 +65,22 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {},
-                          ),
                         ),
                       ),
+                    ),
+                    IconButton(
+                      splashColor: Colors.blue,
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _enabledProfessor = true;
+                          _enabledHour = false;
+                          _enabledClassRom = false;
+                        });
+                      },
                     ),
                   ],
                 ),
@@ -83,6 +97,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Expanded(
                       child: TextField(
+                        enabled: _enabledClassRom,
                         decoration: InputDecoration(
                           hintText: _editedClass["classRom"],
                           hintStyle: TextStyle(
@@ -92,12 +107,64 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           filled: true,
                           fillColor: Colors.white,
                           border: InputBorder.none,
-                          suffixIcon: IconButton(
-                            icon: Icon(Icons.edit),
-                            onPressed: () {},
-                          ),
                         ),
                       ),
+                    ),
+                    IconButton(
+                      splashColor: Colors.blue,
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _enabledClassRom = true;
+                          _enabledHour = false;
+                          _enabledProfessor = false;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "Horário:",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        enabled: _enabledHour,
+                        decoration: InputDecoration(
+                          hintText: _editedClass["hour"],
+                          hintStyle: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 20,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      splashColor: Colors.blue,
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _enabledHour = true;
+                          _enabledClassRom = false;
+                          _enabledProfessor = false;
+                        });
+                      },
                     ),
                   ],
                 ),

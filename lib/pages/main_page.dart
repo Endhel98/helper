@@ -167,11 +167,15 @@ class _MainPageState extends State<MainPage> {
                         style: TextStyle(fontSize: 16, color: Colors.grey),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: Text(
-                          _toDoList[index]["secondHour"],
-                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        padding: EdgeInsets.only(right: 10, left: 20),
+                        child: Icon(
+                          Icons.watch_later,
+                          color: Colors.brown,
                         ),
+                      ),
+                      Text(
+                        _toDoList[index]["secondHour"],
+                        style: TextStyle(fontSize: 16, color: Colors.grey),
                       ),
                     ],
                   ),

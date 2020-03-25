@@ -156,7 +156,7 @@ class _ClassPageState extends State<ClassPage> {
                 decoration: InputDecoration(
                   icon: Icon(
                     Icons.watch_later,
-                    color: Colors.purple,
+                    color: Colors.brown,
                   ),
                   hintText: "Horário do segundo dia",
                   hintStyle: TextStyle(fontSize: 20),

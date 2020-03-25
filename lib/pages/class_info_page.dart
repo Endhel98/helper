@@ -141,7 +141,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       child: TextField(
                         enabled: _enabledHour,
                         decoration: InputDecoration(
-                          hintText: _editedClass["hour"],
+                          hintText: _editedClass["firstHour"] +
+                              " e " +
+                              _editedClass["secondHour"],
                           hintStyle: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 20,

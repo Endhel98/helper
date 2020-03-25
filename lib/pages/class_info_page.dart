@@ -132,7 +132,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      "Horário:",
+                      "1º Dia:",
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -141,9 +141,49 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       child: TextField(
                         enabled: _enabledHour,
                         decoration: InputDecoration(
-                          hintText: _editedClass["firstHour"] +
-                              " e " +
-                              _editedClass["secondHour"],
+                          hintText: _editedClass["firstHour"],
+                          hintStyle: TextStyle(
+                            color: Colors.grey[600],
+                            fontSize: 20,
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      splashColor: Colors.blue,
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.grey,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _enabledHour = true;
+                          _enabledClassRom = false;
+                          _enabledProfessor = false;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10, left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "2º Dia:",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Expanded(
+                      child: TextField(
+                        enabled: _enabledHour,
+                        decoration: InputDecoration(
+                          hintText: _editedClass["secondHour"],
                           hintStyle: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 20,

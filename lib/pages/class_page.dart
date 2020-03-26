@@ -56,7 +56,13 @@ class _ClassPageState extends State<ClassPage> {
               Icons.refresh,
               size: 25,
             ),
-            onPressed: () {},
+            onPressed: () {
+              _classController.clear();
+              _classRomController.clear();
+              _firstHourController.clear();
+              _secondHourController.clear();
+              _professorController.clear();
+            },
           )
         ],
       ),

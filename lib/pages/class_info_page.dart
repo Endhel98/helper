@@ -75,293 +75,205 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(40),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Icon(
-                Icons.person_pin,
-                color: Colors.red,
-                size: 60,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "Professor:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _professorController,
-                        focusNode: professorFocusNode,
-                        decoration: InputDecoration(
-                          hintText: _editedClass["professor"],
-                          hintStyle: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 20,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    IconButton(
-                      splashColor: Colors.blue,
-                      icon: Icon(
-                        Icons.edit,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          FocusScope.of(context)
-                              .requestFocus(professorFocusNode);
-                        });
-                      },
-                    ),
-                  ],
+              Text(
+                "Professor:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "Sala de Atendimento:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _attendanceRoomController,
-                        focusNode: attendanceRoomFocusNode,
-                        decoration: InputDecoration(
-                          hintText: _editedClass["attendanceRoom"],
-                          hintStyle: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 20,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    IconButton(
-                      splashColor: Colors.blue,
-                      icon: Icon(
-                        Icons.edit,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          FocusScope.of(context)
-                              .requestFocus(attendanceRoomFocusNode);
-                        });
-                      },
-                    ),
-                  ],
+              TextField(
+                controller: _professorController,
+                focusNode: professorFocusNode,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(30),
+                  hintText: _editedClass["professor"],
+                  hintStyle: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 20,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: InputBorder.none,
+                  suffixIcon: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
+                ),
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                "Email:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "Horários de Atendimento:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _openingHoursrController,
-                        focusNode: openingHoursFocusNode,
-                        decoration: InputDecoration(
-                          hintText: _editedClass["openingHours"],
-                          hintStyle: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 20,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    IconButton(
-                      splashColor: Colors.blue,
-                      icon: Icon(
-                        Icons.edit,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          FocusScope.of(context)
-                              .requestFocus(openingHoursFocusNode);
-                        });
-                      },
-                    ),
-                  ],
+              TextField(
+                controller: _professorController,
+                focusNode: professorFocusNode,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(30),
+                  hintText: _editedClass["email"],
+                  hintStyle: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 20,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: InputBorder.none,
+                  suffixIcon: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
                 ),
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                "Sala de Atendimento:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextField(
+                controller: _attendanceRoomController,
+                focusNode: attendanceRoomFocusNode,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(30),
+                  hintText: _editedClass["attendanceRoom"],
+                  hintStyle: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 20,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: InputBorder.none,
+                  suffixIcon: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
+                ),
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                "Horários de Atendimento:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextField(
+                controller: _openingHoursrController,
+                focusNode: openingHoursFocusNode,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(30),
+                  hintText: _editedClass["openingHours"],
+                  hintStyle: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 20,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: InputBorder.none,
+                  suffixIcon: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
+                ),
+                style: TextStyle(fontSize: 20),
               ),
               Divider(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
-              Icon(
-                Icons.class_,
-                color: Colors.yellow,
-                size: 60,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "Sala:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _classRomController,
-                        focusNode: classRoomFocusNode,
-                        decoration: InputDecoration(
-                          hintText: _editedClass["classRom"],
-                          hintStyle: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 20,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    IconButton(
-                      splashColor: Colors.blue,
-                      icon: Icon(
-                        Icons.edit,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          FocusScope.of(context)
-                              .requestFocus(classRoomFocusNode);
-                        });
-                      },
-                    ),
-                  ],
+              Text(
+                "Sala:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+              TextField(
+                controller: _classRomController,
+                focusNode: classRoomFocusNode,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(30),
+                  hintText: _editedClass["classRom"],
+                  hintStyle: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 20,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: InputBorder.none,
+                  suffixIcon: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
+                ),
+                style: TextStyle(fontSize: 20),
               ),
               Divider(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
-              Icon(
-                Icons.watch_later,
-                color: Colors.purple,
-                size: 60,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "1º Dia:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _firstHourController,
-                        focusNode: firstHourFocusNode,
-                        decoration: InputDecoration(
-                          hintText: _editedClass["firstHour"],
-                          hintStyle: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 20,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    IconButton(
-                      splashColor: Colors.blue,
-                      icon: Icon(
-                        Icons.edit,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          FocusScope.of(context)
-                              .requestFocus(firstHourFocusNode);
-                        });
-                      },
-                    ),
-                  ],
+              Text(
+                "1º Dia:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 10),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      "2º Dia:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Expanded(
-                      child: TextField(
-                        controller: _secondHourController,
-                        focusNode: secondHourFocusNode,
-                        decoration: InputDecoration(
-                          hintText: _editedClass["secondHour"],
-                          hintStyle: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 20,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: InputBorder.none,
-                        ),
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                    IconButton(
-                      splashColor: Colors.blue,
-                      icon: Icon(
-                        Icons.edit,
-                        color: Colors.grey,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          FocusScope.of(context)
-                              .requestFocus(secondHourFocusNode);
-                        });
-                      },
-                    ),
-                  ],
+              TextField(
+                controller: _firstHourController,
+                focusNode: firstHourFocusNode,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(30),
+                  hintText: _editedClass["firstHour"],
+                  hintStyle: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 20,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: InputBorder.none,
+                  suffixIcon: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
                 ),
+                style: TextStyle(fontSize: 20),
+              ),
+              Text(
+                "2º Dia:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              TextField(
+                controller: _secondHourController,
+                focusNode: secondHourFocusNode,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(30),
+                  hintText: _editedClass["secondHour"],
+                  hintStyle: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 20,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: InputBorder.none,
+                  suffixIcon: Icon(
+                    Icons.edit,
+                    color: Colors.grey,
+                  ),
+                ),
+                style: TextStyle(fontSize: 20),
               ),
             ],
           ),

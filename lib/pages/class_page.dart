@@ -101,7 +101,7 @@ class _ClassPageState extends State<ClassPage> {
                 controller: _professorController,
                 decoration: InputDecoration(
                   icon: Icon(
-                    Icons.person,
+                    Icons.person_pin,
                     color: Colors.red,
                   ),
                   hintText: "Professor",
@@ -119,7 +119,7 @@ class _ClassPageState extends State<ClassPage> {
                 controller: _classRomController,
                 decoration: InputDecoration(
                   icon: Icon(
-                    Icons.local_library,
+                    Icons.class_,
                     color: Colors.yellow,
                   ),
                   hintText: "Sala",

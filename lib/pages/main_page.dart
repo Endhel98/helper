@@ -122,7 +122,7 @@ class _MainPageState extends State<MainPage> {
                       Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
-                          Icons.person,
+                          Icons.person_pin,
                           color: Colors.red,
                         ),
                       ),
@@ -140,7 +140,7 @@ class _MainPageState extends State<MainPage> {
                       Padding(
                         padding: EdgeInsets.only(right: 10),
                         child: Icon(
-                          Icons.local_library,
+                          Icons.class_,
                           color: Colors.yellow,
                         ),
                       ),

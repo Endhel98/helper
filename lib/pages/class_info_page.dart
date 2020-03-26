@@ -103,6 +103,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           fillColor: Colors.white,
                           border: InputBorder.none,
                         ),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     IconButton(
@@ -237,6 +238,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           fillColor: Colors.white,
                           border: InputBorder.none,
                         ),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     IconButton(
@@ -283,6 +285,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           fillColor: Colors.white,
                           border: InputBorder.none,
                         ),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     IconButton(
@@ -326,6 +329,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                           fillColor: Colors.white,
                           border: InputBorder.none,
                         ),
+                        style: TextStyle(fontSize: 20),
                       ),
                     ),
                     IconButton(

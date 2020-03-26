@@ -44,11 +44,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         _editedClass["secondHour"] = _secondHourController.text;
       if (_emailController.text != null && _emailController.text != "")
         _editedClass["email"] = _emailController.text;
-      if (_attendanceRoomController != null &&
+      if (_attendanceRoomController.text != null &&
           _attendanceRoomController.text != "")
         _editedClass["attendanceRoom"] = _attendanceRoomController.text;
-      if (_openingHoursController != null && _openingHoursController.text != "")
+      if (_openingHoursController.text != null &&
+          _openingHoursController.text != "")
         _editedClass["openingHours"] = _openingHoursController.text;
+      if (_annotationsController.text != null &&
+          _annotationsController.text != "")
+        _editedClass["annotations"] = _annotationsController.text;
     });
   }
 

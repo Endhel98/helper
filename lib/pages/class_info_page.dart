@@ -85,109 +85,88 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                "Professor:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+              Container(
+                width: 500,
+                color: Colors.lightBlueAccent,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "Professor:",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextField(
+                      controller: _professorController,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 30, bottom: 10),
+                        hintText: _editedClass["professor"],
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                      ),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    TextField(
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(10),
+                        hintText: _editedClass["email"] == null
+                            ? "Email"
+                            : _editedClass["email"],
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                      ),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    TextField(
+                      controller: _attendanceRoomController,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(10),
+                        hintText: _editedClass["attendanceRoom"] == null
+                            ? "Sala de Atendimento"
+                            : _editedClass["attendanceRoom"],
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                      ),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    TextField(
+                      controller: _openingHoursController,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(10),
+                        hintText: _editedClass["openingHours"] == null
+                            ? "Horários de Atendimento"
+                            : _editedClass["openingHours"],
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                      ),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
                 ),
-              ),
-              TextField(
-                controller: _professorController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(30),
-                  hintText: _editedClass["professor"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.grey,
-                  ),
-                ),
-                style: TextStyle(fontSize: 20),
-              ),
-              Text(
-                "Email:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(30),
-                  hintText: _editedClass["email"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.grey,
-                  ),
-                ),
-                style: TextStyle(fontSize: 20),
-              ),
-              Text(
-                "Sala de Atendimento:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextField(
-                controller: _attendanceRoomController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(30),
-                  hintText: _editedClass["attendanceRoom"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.grey,
-                  ),
-                ),
-                style: TextStyle(fontSize: 20),
-              ),
-              Text(
-                "Horários de Atendimento:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextField(
-                controller: _openingHoursController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(30),
-                  hintText: _editedClass["openingHours"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.grey,
-                  ),
-                ),
-                style: TextStyle(fontSize: 20),
               ),
               Divider(
                 color: Colors.grey[700],

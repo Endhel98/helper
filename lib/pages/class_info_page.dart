@@ -89,7 +89,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       "Professor",
                       style: TextStyle(
                         color: Colors.lightBlue,
-                        fontSize: 25,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -157,7 +157,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       "Sala",
                       style: TextStyle(
                         color: Colors.lightBlue,
-                        fontSize: 25,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -186,10 +186,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Dias de Aula",
+                      "Horário",
                       style: TextStyle(
                         color: Colors.lightBlue,
-                        fontSize: 25,
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

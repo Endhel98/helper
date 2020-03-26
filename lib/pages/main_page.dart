@@ -1,9 +1,8 @@
 import 'dart:convert';
-import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/pages/class_info_page.dart';
 import 'package:helper/pages/class_page.dart';
-import 'package:path_provider/path_provider.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -19,7 +18,7 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
 
-    _readData().then((data) {
+    readData().then((data) {
       setState(() {
         _toDoList = json.decode(data);
       });
@@ -170,7 +169,7 @@ class _MainPageState extends State<MainPage> {
                         padding: EdgeInsets.only(right: 10, left: 20),
                         child: Icon(
                           Icons.watch_later,
-                          color: Colors.brown,
+                          color: Colors.orange,
                         ),
                       ),
                       Text(
@@ -190,7 +189,7 @@ class _MainPageState extends State<MainPage> {
             _lastRemovedPos = index;
             _toDoList.removeAt(index);
 
-            _saveData();
+            saveData(_toDoList);
 
             final snack = SnackBar(
               content: Text("Disciplina \"${_lastRemoved['title']}\" removida"),
@@ -199,7 +198,7 @@ class _MainPageState extends State<MainPage> {
                 onPressed: () {
                   setState(() {
                     _toDoList.insert(_lastRemovedPos, _lastRemoved);
-                    _saveData();
+                    saveData(_toDoList);
                   });
                 },
               ),
@@ -221,25 +220,5 @@ class _MainPageState extends State<MainPage> {
     );
 
     if (recList != null) _toDoList = recList;
-  }
-
-  Future<File> _getFile() async {
-    final directory = await getApplicationDocumentsDirectory();
-    return File("${directory.path}/data.json");
-  }
-
-  Future<String> _readData() async {
-    try {
-      final file = await _getFile();
-      return file.readAsString();
-    } catch (e) {
-      return null;
-    }
-  }
-
-  Future<File> _saveData() async {
-    String data = json.encode(_toDoList);
-    final file = await _getFile();
-    return file.writeAsString(data);
   }
 }

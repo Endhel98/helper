@@ -17,7 +17,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   final _firstHourController = TextEditingController();
   final _secondHourController = TextEditingController();
   final _attendanceRoomController = TextEditingController();
-  final _openingHoursController = TextEditingController();
   final _annotationsController = TextEditingController();
   final _emailController = TextEditingController();
 
@@ -47,9 +46,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       if (_attendanceRoomController.text != null &&
           _attendanceRoomController.text != "")
         _editedClass["attendanceRoom"] = _attendanceRoomController.text;
-      if (_openingHoursController.text != null &&
-          _openingHoursController.text != "")
-        _editedClass["openingHours"] = _openingHoursController.text;
       if (_annotationsController.text != null &&
           _annotationsController.text != "")
         _editedClass["annotations"] = _annotationsController.text;
@@ -82,19 +78,18 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         child: Padding(
           padding: EdgeInsets.all(40),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Container(
                 width: 500,
-                color: Colors.lightBlueAccent,
+                color: Colors.blue[50],
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "Professor:",
+                      "Professor",
                       style: TextStyle(
-                        fontSize: 20,
+                        color: Colors.lightBlue,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -116,6 +111,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _emailController,
+                      textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
                         hintText: _editedClass["email"] == null
@@ -133,6 +129,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _attendanceRoomController,
+                      textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
                         hintText: _editedClass["attendanceRoom"] == null
@@ -148,13 +145,28 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       ),
                       style: TextStyle(fontSize: 20),
                     ),
+                  ],
+                ),
+              ),
+              Divider(color: Colors.transparent),
+              Container(
+                color: Colors.blue[50],
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      "Sala",
+                      style: TextStyle(
+                        color: Colors.lightBlue,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     TextField(
-                      controller: _openingHoursController,
+                      controller: _classRomController,
+                      textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(10),
-                        hintText: _editedClass["openingHours"] == null
-                            ? "Horários de Atendimento"
-                            : _editedClass["openingHours"],
+                        contentPadding: EdgeInsets.all(30),
+                        hintText: _editedClass["classRom"],
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 20,
@@ -168,82 +180,53 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                   ],
                 ),
               ),
-              Divider(
-                color: Colors.grey[700],
-              ),
-              Text(
-                "Sala:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+              Divider(color: Colors.transparent),
+              Container(
+                color: Colors.blue[50],
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      "Dias de Aula",
+                      style: TextStyle(
+                        color: Colors.lightBlue,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextField(
+                      controller: _firstHourController,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 30, bottom: 10),
+                        hintText: _editedClass["firstHour"],
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                      ),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    TextField(
+                      controller: _secondHourController,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(10),
+                        hintText: _editedClass["secondHour"],
+                        hintStyle: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 20,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                      ),
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ],
                 ),
-              ),
-              TextField(
-                controller: _classRomController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(30),
-                  hintText: _editedClass["classRom"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.grey,
-                  ),
-                ),
-                style: TextStyle(fontSize: 20),
-              ),
-              Divider(
-                color: Colors.grey[700],
-              ),
-              Text(
-                "Dias de Aula:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              TextField(
-                controller: _firstHourController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(30),
-                  hintText: _editedClass["firstHour"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.grey,
-                  ),
-                ),
-                style: TextStyle(fontSize: 20),
-              ),
-              TextField(
-                controller: _secondHourController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(30),
-                  hintText: _editedClass["secondHour"],
-                  hintStyle: TextStyle(
-                    color: Colors.grey[600],
-                    fontSize: 20,
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.edit,
-                    color: Colors.grey,
-                  ),
-                ),
-                style: TextStyle(fontSize: 20),
               ),
               Divider(
                 color: Colors.grey[700],

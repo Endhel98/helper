@@ -12,29 +12,18 @@ class ClassInfoPage extends StatefulWidget {
 class _ClassInfoPageState extends State<ClassInfoPage> {
   Map _editedClass;
 
-  FocusNode professorFocusNode;
-  FocusNode classRoomFocusNode;
-  FocusNode firstHourFocusNode;
-  FocusNode secondHourFocusNode;
-  FocusNode attendanceRoomFocusNode;
-  FocusNode openingHoursFocusNode;
-
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
   final _firstHourController = TextEditingController();
   final _secondHourController = TextEditingController();
   final _attendanceRoomController = TextEditingController();
-  final _openingHoursrController = TextEditingController();
+  final _openingHoursController = TextEditingController();
+  final _annotationsController = TextEditingController();
+  final _emailController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    professorFocusNode = FocusNode();
-    classRoomFocusNode = FocusNode();
-    firstHourFocusNode = FocusNode();
-    secondHourFocusNode = FocusNode();
-    attendanceRoomFocusNode = FocusNode();
-    openingHoursFocusNode = FocusNode();
     if (widget.toDoClass == null)
       _editedClass = {};
     else {
@@ -42,15 +31,25 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     }
   }
 
-  @override
-  void dispose() {
-    professorFocusNode.dispose();
-    classRoomFocusNode.dispose();
-    firstHourFocusNode.dispose();
-    secondHourFocusNode.dispose();
-    attendanceRoomFocusNode.dispose();
-    openingHoursFocusNode.dispose();
-    super.dispose();
+  void _addToDo() {
+    setState(() {
+      if (_professorController.text != null && _professorController.text != "")
+        _editedClass["professor"] = _professorController.text;
+      if (_classRomController.text != null && _classRomController.text != "")
+        _editedClass["classRom"] = _classRomController.text;
+      if (_firstHourController.text != null && _firstHourController.text != "")
+        _editedClass["firstHour"] = _firstHourController.text;
+      if (_secondHourController.text != null &&
+          _secondHourController.text != "")
+        _editedClass["secondHour"] = _secondHourController.text;
+      if (_emailController.text != null && _emailController.text != "")
+        _editedClass["email"] = _emailController.text;
+      if (_attendanceRoomController != null &&
+          _attendanceRoomController.text != "")
+        _editedClass["attendanceRoom"] = _attendanceRoomController.text;
+      if (_openingHoursController != null && _openingHoursController.text != "")
+        _editedClass["openingHours"] = _openingHoursController.text;
+    });
   }
 
   @override
@@ -67,7 +66,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         iconTheme: IconThemeData(color: Colors.white),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          _addToDo();
+        },
         child: Icon(
           Icons.save,
           color: Colors.white,
@@ -89,7 +90,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               ),
               TextField(
                 controller: _professorController,
-                focusNode: professorFocusNode,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(30),
                   hintText: _editedClass["professor"],
@@ -115,8 +115,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 ),
               ),
               TextField(
-                controller: _professorController,
-                focusNode: professorFocusNode,
+                controller: _emailController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(30),
                   hintText: _editedClass["email"],
@@ -143,7 +142,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               ),
               TextField(
                 controller: _attendanceRoomController,
-                focusNode: attendanceRoomFocusNode,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(30),
                   hintText: _editedClass["attendanceRoom"],
@@ -169,8 +167,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 ),
               ),
               TextField(
-                controller: _openingHoursrController,
-                focusNode: openingHoursFocusNode,
+                controller: _openingHoursController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(30),
                   hintText: _editedClass["openingHours"],
@@ -200,7 +197,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               ),
               TextField(
                 controller: _classRomController,
-                focusNode: classRoomFocusNode,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(30),
                   hintText: _editedClass["classRom"],
@@ -230,7 +226,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               ),
               TextField(
                 controller: _firstHourController,
-                focusNode: firstHourFocusNode,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(30),
                   hintText: _editedClass["firstHour"],
@@ -250,7 +245,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               ),
               TextField(
                 controller: _secondHourController,
-                focusNode: secondHourFocusNode,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(30),
                   hintText: _editedClass["secondHour"],
@@ -274,10 +268,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               Container(
                 height: 500,
                 width: 500,
-                color: Colors.yellow,
+                padding: EdgeInsets.only(top: 20),
                 child: TextField(
-                  controller: _secondHourController,
-                  focusNode: secondHourFocusNode,
+                  maxLines: 100,
+                  controller: _annotationsController,
                   decoration: InputDecoration(
                     hintText: _editedClass["annotations"] != null
                         ? _editedClass["annotations"]
@@ -289,10 +283,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     filled: true,
                     fillColor: Colors.grey[200],
                     border: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.edit,
-                      color: Colors.grey,
-                    ),
                   ),
                   style: TextStyle(fontSize: 20),
                 ),

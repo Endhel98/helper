@@ -78,6 +78,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: <Widget>[
+              Icon(
+                Icons.person_pin,
+                color: Colors.red,
+                size: 60,
+              ),
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Row(
@@ -213,6 +218,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               Divider(
                 color: Colors.grey[500],
               ),
+              Icon(
+                Icons.class_,
+                color: Colors.yellow,
+                size: 60,
+              ),
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),
                 child: Row(
@@ -259,6 +269,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               ),
               Divider(
                 color: Colors.grey[500],
+              ),
+              Icon(
+                Icons.watch_later,
+                color: Colors.purple,
+                size: 60,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 10),

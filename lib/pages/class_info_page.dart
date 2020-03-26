@@ -222,7 +222,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 color: Colors.grey[700],
               ),
               Text(
-                "1º Dia:",
+                "Dias de Aula:",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -248,13 +248,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 ),
                 style: TextStyle(fontSize: 20),
               ),
-              Text(
-                "2º Dia:",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
               TextField(
                 controller: _secondHourController,
                 focusNode: secondHourFocusNode,
@@ -274,6 +267,35 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                   ),
                 ),
                 style: TextStyle(fontSize: 20),
+              ),
+              Divider(
+                color: Colors.grey[700],
+              ),
+              Container(
+                height: 500,
+                width: 500,
+                color: Colors.yellow,
+                child: TextField(
+                  controller: _secondHourController,
+                  focusNode: secondHourFocusNode,
+                  decoration: InputDecoration(
+                    hintText: _editedClass["annotations"] != null
+                        ? _editedClass["annotations"]
+                        : "Anotações",
+                    hintStyle: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 20,
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey[200],
+                    border: InputBorder.none,
+                    suffixIcon: Icon(
+                      Icons.edit,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ],
           ),

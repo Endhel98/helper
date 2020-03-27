@@ -67,7 +67,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _addToDo();
+          setState(() {
+            _addToDo();
+          });
         },
         child: Icon(
           Icons.save,
@@ -98,7 +100,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 30, bottom: 10),
-                        hintText: _editedClass["professor"],
+                        hintText: _editedClass["professor"] == null ||
+                                _editedClass["professor"] == ""
+                            ? "Nome"
+                            : _editedClass["professor"],
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 20,
@@ -166,7 +171,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(30),
-                        hintText: _editedClass["classRom"],
+                        hintText: _editedClass["classRom"] == null ||
+                                _editedClass["classRom"] == ""
+                            ? "bloco, número"
+                            : _editedClass["classRom"],
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 20,
@@ -198,7 +206,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 30, bottom: 10),
-                        hintText: _editedClass["firstHour"],
+                        hintText: _editedClass["firstHour"] == null ||
+                                _editedClass["firstHour"] == ""
+                            ? "1º dia"
+                            : _editedClass["firstHour"],
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 20,
@@ -214,7 +225,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
-                        hintText: _editedClass["secondHour"],
+                        hintText: _editedClass["secondHour"] == null ||
+                                _editedClass["secondHour"] == ""
+                            ? "2º dia"
+                            : _editedClass["secondHour"],
                         hintStyle: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 20,

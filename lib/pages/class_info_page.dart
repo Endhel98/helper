@@ -312,7 +312,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         }
                       });
                     },
-                  )
+                  ),
+                  Icon(
+                    Icons.warning,
+                    color: _num < 9 ? Colors.grey : Colors.yellow,
+                  ),
                 ],
               ),
               Divider(

@@ -269,31 +269,51 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 ),
               ),
               Divider(color: Colors.transparent),
-              Container(
-                height: 70.0,
-                width: 70.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.lightBlue[400],
-                ),
-                child: FlatButton(
-                  onPressed: () {
-                    setState(() {
-                      _num++;
-                      _editedClass["absenses"] = _num.toString();
-                    });
-                  },
-                  child: Text(
-                    _editedClass["absenses"] == null
-                        ? "$_num"
-                        : _editedClass["absenses"],
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    height: 70.0,
+                    width: 70.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.lightBlue[400],
+                    ),
+                    child: FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          _num++;
+                          _editedClass["absenses"] = _num.toString();
+                        });
+                      },
+                      child: Text(
+                        _editedClass["absenses"] == null
+                            ? "$_num"
+                            : _editedClass["absenses"],
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.remove_circle,
+                      color: Colors.red,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        if (_num > 0) {
+                          _num--;
+                          _editedClass["absenses"] = _num.toString();
+                        }
+                      });
+                    },
+                  )
+                ],
               ),
               Divider(
                 color: Colors.grey[700],

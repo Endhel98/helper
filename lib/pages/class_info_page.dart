@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:helper/functionsJson/functions.dart';
 
 class ClassInfoPage extends StatefulWidget {
-  final Map toDoClass;
+  final Map<String, dynamic> toDoClass;
   final List toDoList;
   final int index;
 
@@ -13,10 +13,9 @@ class ClassInfoPage extends StatefulWidget {
 }
 
 class _ClassInfoPageState extends State<ClassInfoPage> {
-  Map _editedClass;
+  Map<String, dynamic> _editedClass = Map();
   List _editedList;
   int _index;
-  int _num = 0;
 
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
@@ -29,13 +28,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   @override
   void initState() {
     super.initState();
-    if (widget.toDoClass == null)
-      _editedClass = {};
-    else {
-      _editedClass = widget.toDoClass;
-      _editedList = widget.toDoList;
-      _index = widget.index;
-    }
+
+    _editedClass = widget.toDoClass;
+    _editedList = widget.toDoList;
+    _index = widget.index;
   }
 
   void _addToDo() {
@@ -80,6 +76,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         onPressed: () {
           setState(() {
             _addToDo();
+            Navigator.pop(context);
           });
         },
         child: Icon(
@@ -89,7 +86,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(40),
+          padding: EdgeInsets.all(30),
           child: Column(
             children: <Widget>[
               Container(
@@ -108,6 +105,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _professorController,
+                      onTap: () {
+                        _professorController.text = _editedClass["professor"];
+                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 30, bottom: 10),
@@ -127,6 +127,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _emailController,
+                      onTap: () {
+                        _emailController.text = _editedClass["email"];
+                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
@@ -145,6 +148,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _attendanceRoomController,
+                      onTap: () {
+                        _attendanceRoomController.text =
+                            _editedClass["attendanceRoom"];
+                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
@@ -179,6 +186,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _classRomController,
+                      onTap: () {
+                        _classRomController.text = _editedClass["classRom"];
+                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(30),
@@ -214,6 +224,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _firstHourController,
+                      onTap: () {
+                        _firstHourController.text = _editedClass["firstHour"];
+                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 30, bottom: 10),
@@ -233,6 +246,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _secondHourController,
+                      onTap: () {
+                        _secondHourController.text = _editedClass["secondHour"];
+                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
@@ -257,7 +273,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               Container(
                 color: Colors.blue[50],
                 height: 27,
-                width: 270,
+                width: 300,
                 alignment: Alignment(0, 0),
                 child: Text(
                   "Faltas",
@@ -282,14 +298,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     child: FlatButton(
                       onPressed: () {
                         setState(() {
-                          _num++;
-                          _editedClass["absenses"] = _num.toString();
+                          _editedClass["absenses"]++;
                         });
                       },
                       child: Text(
-                        _editedClass["absenses"] == null
-                            ? "$_num"
-                            : _editedClass["absenses"],
+                        _editedClass['absenses'].toString(),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -306,27 +319,54 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        if (_num > 0) {
-                          _num--;
-                          _editedClass["absenses"] = _num.toString();
-                        }
+                        if (_editedClass["absenses"] > 0)
+                          _editedClass["absenses"]--;
                       });
                     },
                   ),
+                ],
+              ),
+              Divider(color: Colors.transparent),
+              Row(
+                children: <Widget>[
                   Icon(
-                    Icons.warning,
-                    color: _num < 9 ? Colors.grey : Colors.yellow,
+                    _editedClass["absenses"] < 8
+                        ? Icons.check_circle
+                        : Icons.warning,
+                    color: _editedClass["absenses"] < 8
+                        ? Colors.green
+                        : Colors.yellow[700],
+                  ),
+                  Text(
+                    _editedClass["absenses"] < 10 ? "" : "Reprovado por falta!",
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-              Divider(
-                color: Colors.grey[700],
+              Divider(color: Colors.transparent),
+              Container(
+                color: Colors.blue[50],
+                height: 27,
+                width: 300,
+                alignment: Alignment(0, 0),
+                child: Text(
+                  "Anotações",
+                  style: TextStyle(
+                    color: Colors.lightBlue,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
+              Divider(color: Colors.transparent),
               Container(
                 height: 500,
                 width: 500,
                 padding: EdgeInsets.only(top: 20),
                 child: TextField(
+                  onTap: () {
+                    _annotationsController.text = _editedClass["annotations"];
+                  },
                   maxLines: 100,
                   controller: _annotationsController,
                   decoration: InputDecoration(

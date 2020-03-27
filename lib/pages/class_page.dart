@@ -34,6 +34,7 @@ class _ClassPageState extends State<ClassPage> {
       newToDo["classRom"] = _classRomController.text;
       newToDo["firstHour"] = _firstHourController.text;
       newToDo["secondHour"] = _secondHourController.text;
+      newToDo["absenses"] = 0;
       _toDoList.add(newToDo);
       saveData(_toDoList);
     });

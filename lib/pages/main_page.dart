@@ -73,6 +73,8 @@ class _MainPageState extends State<MainPage> {
           MaterialPageRoute(
             builder: (context) => ClassInfoPage(
               toDoClass: _toDoList[index],
+              toDoList: _toDoList,
+              index: index,
             ),
           ),
         );

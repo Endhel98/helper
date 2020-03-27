@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:helper/functionsJson/functions.dart';
 
 class ClassInfoPage extends StatefulWidget {
   final Map toDoClass;
+  final List toDoList;
+  final int index;
 
-  ClassInfoPage({this.toDoClass});
+  ClassInfoPage({this.toDoClass, this.toDoList, this.index});
 
   @override
   _ClassInfoPageState createState() => _ClassInfoPageState();
@@ -11,6 +14,8 @@ class ClassInfoPage extends StatefulWidget {
 
 class _ClassInfoPageState extends State<ClassInfoPage> {
   Map _editedClass;
+  List _editedList;
+  int _index;
 
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
@@ -27,6 +32,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       _editedClass = {};
     else {
       _editedClass = widget.toDoClass;
+      _editedList = widget.toDoList;
+      _index = widget.index;
     }
   }
 
@@ -49,6 +56,9 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       if (_annotationsController.text != null &&
           _annotationsController.text != "")
         _editedClass["annotations"] = _annotationsController.text;
+
+      _editedList[_index] = _editedClass;
+      saveData(_editedList);
     });
   }
 

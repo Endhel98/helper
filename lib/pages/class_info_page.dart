@@ -16,6 +16,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   Map _editedClass;
   List _editedList;
   int _index;
+  int _num = 0;
 
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
@@ -250,6 +251,48 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       style: TextStyle(fontSize: 20),
                     ),
                   ],
+                ),
+              ),
+              Divider(color: Colors.transparent),
+              Container(
+                color: Colors.blue[50],
+                height: 27,
+                width: 270,
+                alignment: Alignment(0, 0),
+                child: Text(
+                  "Faltas",
+                  style: TextStyle(
+                    color: Colors.lightBlue,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Divider(color: Colors.transparent),
+              Container(
+                height: 70.0,
+                width: 70.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.lightBlue[400],
+                ),
+                child: FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      _num++;
+                      _editedClass["absenses"] = _num.toString();
+                    });
+                  },
+                  child: Text(
+                    _editedClass["absenses"] == null
+                        ? "$_num"
+                        : _editedClass["absenses"],
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
               Divider(

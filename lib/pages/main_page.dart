@@ -106,11 +106,14 @@ class _MainPageState extends State<MainPage> {
                           color: Colors.lightGreen,
                         ),
                       ),
-                      Text(
-                        _toDoList[index]["class"],
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
+                      Container(
+                        width: 285,
+                        child: Text(
+                          _toDoList[index]["class"],
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ],
@@ -127,9 +130,12 @@ class _MainPageState extends State<MainPage> {
                           color: Colors.red,
                         ),
                       ),
-                      Text(
-                        _toDoList[index]["professor"],
-                        style: TextStyle(fontSize: 18, color: Colors.grey),
+                      Container(
+                        width: 285,
+                        child: Text(
+                          _toDoList[index]["professor"],
+                          style: TextStyle(fontSize: 18, color: Colors.grey),
+                        ),
                       ),
                     ],
                   ),
@@ -145,9 +151,12 @@ class _MainPageState extends State<MainPage> {
                           color: Colors.yellow,
                         ),
                       ),
-                      Text(
-                        _toDoList[index]["classRom"],
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      Container(
+                        width: 285,
+                        child: Text(
+                          _toDoList[index]["classRom"],
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
                       ),
                     ],
                   ),
@@ -163,9 +172,12 @@ class _MainPageState extends State<MainPage> {
                           color: Colors.purple,
                         ),
                       ),
-                      Text(
-                        _toDoList[index]["firstHour"],
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      Container(
+                        width: 120,
+                        child: Text(
+                          _toDoList[index]["firstHour"],
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 10, left: 20),
@@ -174,9 +186,12 @@ class _MainPageState extends State<MainPage> {
                           color: Colors.orange,
                         ),
                       ),
-                      Text(
-                        _toDoList[index]["secondHour"],
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
+                      Container(
+                        width: 110,
+                        child: Text(
+                          _toDoList[index]["secondHour"],
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
                       ),
                     ],
                   ),

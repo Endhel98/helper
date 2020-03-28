@@ -107,12 +107,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       controller: _professorController,
                       onTap: () {
                         _professorController.text = _editedClass["professor"];
-                        _classRomController.text = "";
-                        _firstHourController.text = "";
-                        _secondHourController.text = "";
-                        _attendanceRoomController.text = "";
-                        _annotationsController.text = "";
-                        _emailController.text = "";
                       },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -135,12 +129,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       controller: _emailController,
                       onTap: () {
                         _emailController.text = _editedClass["email"];
-                        _professorController.text = "";
-                        _classRomController.text = "";
-                        _firstHourController.text = "";
-                        _secondHourController.text = "";
-                        _attendanceRoomController.text = "";
-                        _annotationsController.text = "";
                       },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -163,12 +151,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       onTap: () {
                         _attendanceRoomController.text =
                             _editedClass["attendanceRoom"];
-                        _professorController.text = "";
-                        _classRomController.text = "";
-                        _firstHourController.text = "";
-                        _secondHourController.text = "";
-                        _annotationsController.text = "";
-                        _emailController.text = "";
                       },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -206,12 +188,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       controller: _classRomController,
                       onTap: () {
                         _classRomController.text = _editedClass["classRom"];
-                        _professorController.text = "";
-                        _firstHourController.text = "";
-                        _secondHourController.text = "";
-                        _attendanceRoomController.text = "";
-                        _annotationsController.text = "";
-                        _emailController.text = "";
                       },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -250,12 +226,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       controller: _firstHourController,
                       onTap: () {
                         _firstHourController.text = _editedClass["firstHour"];
-                        _professorController.text = "";
-                        _classRomController.text = "";
-                        _secondHourController.text = "";
-                        _attendanceRoomController.text = "";
-                        _annotationsController.text = "";
-                        _emailController.text = "";
                       },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -278,12 +248,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       controller: _secondHourController,
                       onTap: () {
                         _secondHourController.text = _editedClass["secondHour"];
-                        _professorController.text = "";
-                        _classRomController.text = "";
-                        _firstHourController.text = "";
-                        _attendanceRoomController.text = "";
-                        _annotationsController.text = "";
-                        _emailController.text = "";
                       },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -402,12 +366,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 child: TextField(
                   onTap: () {
                     _annotationsController.text = _editedClass["annotations"];
-                    _professorController.text = "";
-                    _classRomController.text = "";
-                    _firstHourController.text = "";
-                    _secondHourController.text = "";
-                    _attendanceRoomController.text = "";
-                    _emailController.text = "";
                   },
                   maxLines: 100,
                   controller: _annotationsController,

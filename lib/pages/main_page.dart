@@ -88,7 +88,14 @@ class _MainPageState extends State<MainPage> {
             child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
-        direction: DismissDirection.startToEnd,
+        secondaryBackground: Container(
+          color: Colors.red,
+          child: Align(
+            alignment: Alignment(0.9, 0.0),
+            child: Icon(Icons.delete, color: Colors.white),
+          ),
+        ),
+        direction: DismissDirection.horizontal,
         child: Card(
           child: Padding(
             padding: EdgeInsets.all(10.0),

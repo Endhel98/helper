@@ -50,8 +50,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       if (_attendanceRoomController.text != null &&
           _attendanceRoomController.text != "")
         _editedClass["attendanceRoom"] = _attendanceRoomController.text;
-      if (_annotationsController.text != null &&
-          _annotationsController.text != "")
+      if (_annotationsController.text != null)
         _editedClass["annotations"] = _annotationsController.text;
 
       _editedList[_index] = _editedClass;
@@ -370,9 +369,10 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                   maxLines: 100,
                   controller: _annotationsController,
                   decoration: InputDecoration(
-                    hintText: _editedClass["annotations"] != null
-                        ? _editedClass["annotations"]
-                        : "Anotações",
+                    hintText: _editedClass["annotations"] == null ||
+                            _editedClass["annotations"].toString() == ""
+                        ? "Anotações"
+                        : _editedClass["annotations"],
                     hintStyle: TextStyle(
                       color: Colors.grey[600],
                       fontSize: 20,

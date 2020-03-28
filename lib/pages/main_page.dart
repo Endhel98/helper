@@ -194,7 +194,7 @@ class _MainPageState extends State<MainPage> {
             saveData(_toDoList);
 
             final snack = SnackBar(
-              content: Text("Disciplina \"${_lastRemoved['title']}\" removida"),
+              content: Text("Disciplina \"${_lastRemoved['class']}\" removida"),
               action: SnackBarAction(
                 label: "Desfazer",
                 onPressed: () {

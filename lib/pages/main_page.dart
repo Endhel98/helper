@@ -28,30 +28,24 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        title: Text(
-          "Helper",
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.more_vert,
-              color: Colors.white,
+      appBar: PreferredSize(
+        child: AppBar(
+          backgroundColor: Colors.white,
+          title: Padding(
+            padding: EdgeInsets.only(top: 30),
+            child: Image.asset(
+              "images/Helper.png",
             ),
-            onPressed: () {},
-          )
-        ],
+          ),
+          centerTitle: true,
+        ),
+        preferredSize: Size.fromHeight(50),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _showContactPage();
         },
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Color(0xff1E90FF),
         child: Icon(
           Icons.add,
           color: Colors.white,

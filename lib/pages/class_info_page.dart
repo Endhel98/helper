@@ -99,13 +99,14 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
           padding: EdgeInsets.all(30),
           child: Column(
             children: <Widget>[
-              Container(
-                width: 500,
-                color: Colors.blue[50],
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
+              Column(
+                children: <Widget>[
+                  Container(
+                    color: Colors.blue[50],
+                    height: 27,
+                    width: 300,
+                    alignment: Alignment(0, 0),
+                    child: Text(
                       "Professor",
                       style: TextStyle(
                         color: Colors.lightBlue,
@@ -113,64 +114,83 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextField(
-                      controller: _professorController,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.only(top: 30, bottom: 10, left: 10),
-                        prefix: Text("Nome"),
-                        prefixStyle: TextStyle(
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "Nome",
+                        style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: InputBorder.none,
                       ),
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    TextField(
-                      controller: _emailController,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(10),
-                        prefix: Text("Email"),
-                        prefixStyle: TextStyle(
+                      Expanded(
+                        child: TextField(
+                          controller: _professorController,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "Email",
+                        style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: InputBorder.none,
                       ),
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    TextField(
-                      controller: _attendanceRoomController,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(10),
-                        prefix: Text("Sala"),
-                        prefixStyle: TextStyle(
+                      Expanded(
+                        child: TextField(
+                          controller: _emailController,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "Sala",
+                        style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: InputBorder.none,
                       ),
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(color: Colors.transparent),
-              Container(
-                color: Colors.blue[50],
-                child: Column(
-                  children: <Widget>[
-                    Text(
+                      Expanded(
+                        child: TextField(
+                          controller: _attendanceRoomController,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
+                  Divider(color: Colors.transparent),
+                  Container(
+                    color: Colors.blue[50],
+                    height: 27,
+                    width: 300,
+                    alignment: Alignment(0, 0),
+                    child: Text(
                       "Sala",
                       style: TextStyle(
                         color: Colors.lightBlue,
@@ -178,32 +198,37 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextField(
-                      controller: _classRomController,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.only(top: 30, bottom: 10, left: 10),
-                        prefix: Text("Bloco, Número"),
-                        prefixStyle: TextStyle(
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "Num",
+                        style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: InputBorder.none,
                       ),
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(color: Colors.transparent),
-              Container(
-                color: Colors.blue[50],
-                child: Column(
-                  children: <Widget>[
-                    Text(
+                      Expanded(
+                        child: TextField(
+                          controller: _classRomController,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
+                  Divider(color: Colors.transparent),
+                  Container(
+                    color: Colors.blue[50],
+                    height: 27,
+                    width: 300,
+                    alignment: Alignment(0, 0),
+                    child: Text(
                       "Horário",
                       style: TextStyle(
                         color: Colors.lightBlue,
@@ -211,41 +236,54 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextField(
-                      controller: _firstHourController,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        contentPadding:
-                            EdgeInsets.only(top: 30, bottom: 10, left: 10),
-                        prefix: Text("1º Dia"),
-                        prefixStyle: TextStyle(
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "1º Dia",
+                        style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: InputBorder.none,
                       ),
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    TextField(
-                      controller: _secondHourController,
-                      textAlign: TextAlign.center,
-                      decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(10),
-                        prefix: Text("2º Dia"),
-                        prefixStyle: TextStyle(
+                      Expanded(
+                        child: TextField(
+                          controller: _firstHourController,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "2º Dia",
+                        style: TextStyle(
                           color: Colors.grey[600],
                           fontSize: 12,
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: InputBorder.none,
                       ),
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
+                      Expanded(
+                        child: TextField(
+                          controller: _secondHourController,
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: InputBorder.none,
+                          ),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
               Divider(color: Colors.transparent),
               Container(

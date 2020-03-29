@@ -32,23 +32,34 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     _editedClass = widget.toDoClass;
     _editedList = widget.toDoList;
     _index = widget.index;
+
+    if (_editedClass["professor"] != null)
+      _professorController.text = _editedClass["professor"];
+    if (_editedClass["classRom"] != null)
+      _classRomController.text = _editedClass["classRom"];
+    if (_editedClass["firstHour"] != null)
+      _firstHourController.text = _editedClass["firstHour"];
+    if (_editedClass["secondHour"] != null)
+      _secondHourController.text = _editedClass["secondHour"];
+    if (_editedClass["attendanceRoom"] != null)
+      _attendanceRoomController.text = _editedClass["attendanceRoom"];
+    if (_editedClass["email"] != null)
+      _emailController.text = _editedClass["email"];
   }
 
   void _addToDo() {
     setState(() {
-      if (_professorController.text != null && _professorController.text != "")
+      if (_professorController.text != null)
         _editedClass["professor"] = _professorController.text;
-      if (_classRomController.text != null && _classRomController.text != "")
+      if (_classRomController.text != null)
         _editedClass["classRom"] = _classRomController.text;
-      if (_firstHourController.text != null && _firstHourController.text != "")
+      if (_firstHourController.text != null)
         _editedClass["firstHour"] = _firstHourController.text;
-      if (_secondHourController.text != null &&
-          _secondHourController.text != "")
+      if (_secondHourController.text != null)
         _editedClass["secondHour"] = _secondHourController.text;
-      if (_emailController.text != null && _emailController.text != "")
+      if (_emailController.text != null)
         _editedClass["email"] = _emailController.text;
-      if (_attendanceRoomController.text != null &&
-          _attendanceRoomController.text != "")
+      if (_attendanceRoomController.text != null)
         _editedClass["attendanceRoom"] = _attendanceRoomController.text;
       if (_annotationsController.text != null)
         _editedClass["annotations"] = _annotationsController.text;
@@ -104,19 +115,14 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _professorController,
-                      onTap: () {
-                        _professorController.text = _editedClass["professor"];
-                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(top: 30, bottom: 10),
-                        hintText: _editedClass["professor"] == null ||
-                                _editedClass["professor"] == ""
-                            ? "Nome"
-                            : _editedClass["professor"],
-                        hintStyle: TextStyle(
+                        contentPadding:
+                            EdgeInsets.only(top: 30, bottom: 10, left: 10),
+                        prefix: Text("Nome"),
+                        prefixStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 12,
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -126,18 +132,13 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _emailController,
-                      onTap: () {
-                        _emailController.text = _editedClass["email"];
-                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
-                        hintText: _editedClass["email"] == null
-                            ? "Email"
-                            : _editedClass["email"],
-                        hintStyle: TextStyle(
+                        prefix: Text("Email"),
+                        prefixStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 12,
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -147,19 +148,13 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _attendanceRoomController,
-                      onTap: () {
-                        _attendanceRoomController.text =
-                            _editedClass["attendanceRoom"];
-                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
-                        hintText: _editedClass["attendanceRoom"] == null
-                            ? "Sala de Atendimento"
-                            : _editedClass["attendanceRoom"],
-                        hintStyle: TextStyle(
+                        prefix: Text("Sala"),
+                        prefixStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 12,
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -185,19 +180,14 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _classRomController,
-                      onTap: () {
-                        _classRomController.text = _editedClass["classRom"];
-                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.all(30),
-                        hintText: _editedClass["classRom"] == null ||
-                                _editedClass["classRom"] == ""
-                            ? "bloco, número"
-                            : _editedClass["classRom"],
-                        hintStyle: TextStyle(
+                        contentPadding:
+                            EdgeInsets.only(top: 30, bottom: 10, left: 10),
+                        prefix: Text("Bloco, Número"),
+                        prefixStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 12,
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -223,19 +213,14 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _firstHourController,
-                      onTap: () {
-                        _firstHourController.text = _editedClass["firstHour"];
-                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.only(top: 30, bottom: 10),
-                        hintText: _editedClass["firstHour"] == null ||
-                                _editedClass["firstHour"] == ""
-                            ? "1º dia"
-                            : _editedClass["firstHour"],
-                        hintStyle: TextStyle(
+                        contentPadding:
+                            EdgeInsets.only(top: 30, bottom: 10, left: 10),
+                        prefix: Text("1º Dia"),
+                        prefixStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 12,
                         ),
                         filled: true,
                         fillColor: Colors.white,
@@ -245,19 +230,13 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     TextField(
                       controller: _secondHourController,
-                      onTap: () {
-                        _secondHourController.text = _editedClass["secondHour"];
-                      },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
-                        hintText: _editedClass["secondHour"] == null ||
-                                _editedClass["secondHour"] == ""
-                            ? "2º dia"
-                            : _editedClass["secondHour"],
-                        hintStyle: TextStyle(
+                        prefix: Text("2º Dia"),
+                        prefixStyle: TextStyle(
                           color: Colors.grey[600],
-                          fontSize: 20,
+                          fontSize: 12,
                         ),
                         filled: true,
                         fillColor: Colors.white,

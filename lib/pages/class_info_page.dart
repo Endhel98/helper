@@ -381,7 +381,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 padding: EdgeInsets.only(top: 20),
                 child: TextField(
                   onTap: () {
-                    _annotationsController.text = _editedClass["annotations"];
+                    if (_annotationsController.text == "")
+                      _annotationsController.text = _editedClass["annotations"];
                   },
                   maxLines: 100,
                   controller: _annotationsController,

@@ -43,29 +43,36 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.lightBlue),
-        title: Text(
-          "Dados da Disciplina",
-          style: TextStyle(color: Colors.lightBlue),
-        ),
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.refresh,
-              size: 25,
+      appBar: PreferredSize(
+        child: AppBar(
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(
+            color: Color(0xff1E90FF),
+          ),
+          title: Padding(
+            padding: EdgeInsets.only(top: 30),
+            child: Image.asset(
+              "images/Helper.png",
             ),
-            onPressed: () {
-              _classController.clear();
-              _classRomController.clear();
-              _firstHourController.clear();
-              _secondHourController.clear();
-              _professorController.clear();
-            },
-          )
-        ],
+          ),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.refresh,
+                size: 25,
+              ),
+              onPressed: () {
+                _classController.clear();
+                _classRomController.clear();
+                _firstHourController.clear();
+                _secondHourController.clear();
+                _professorController.clear();
+              },
+            )
+          ],
+        ),
+        preferredSize: Size.fromHeight(50),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

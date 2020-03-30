@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
         child: AppBar(
           backgroundColor: Colors.white,
           title: Padding(
-            padding: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.only(top: 30, left: 20),
             child: Image.asset(
               "images/Helper.png",
             ),

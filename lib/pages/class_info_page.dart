@@ -73,16 +73,23 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          _editedClass["class"],
-          style: TextStyle(color: Colors.white),
+      appBar: PreferredSize(
+        child: AppBar(
+          backgroundColor: Colors.white,
+          iconTheme: IconThemeData(
+            color: Color(0xff1E90FF),
+          ),
+          title: Padding(
+            padding: EdgeInsets.only(top: 30, right: 25),
+            child: Image.asset(
+              "images/Helper.png",
+            ),
+          ),
         ),
-        backgroundColor: Colors.lightBlue,
-        iconTheme: IconThemeData(color: Colors.white),
+        preferredSize: Size.fromHeight(50),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xff1E90FF),
         onPressed: () {
           setState(() {
             _addToDo();
@@ -109,7 +116,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     child: Text(
                       "Professor",
                       style: TextStyle(
-                        color: Colors.lightBlue,
+                        color: Color(0xff1E90FF),
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
@@ -193,7 +200,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     child: Text(
                       "Sala",
                       style: TextStyle(
-                        color: Colors.lightBlue,
+                        color: Color(0xff1E90FF),
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
@@ -231,7 +238,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     child: Text(
                       "Horário",
                       style: TextStyle(
-                        color: Colors.lightBlue,
+                        color: Color(0xff1E90FF),
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
@@ -294,7 +301,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 child: Text(
                   "Faltas",
                   style: TextStyle(
-                    color: Colors.lightBlue,
+                    color: Color(0xff1E90FF),
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
@@ -309,7 +316,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     width: 70.0,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.lightBlue[400],
+                      color: Color(0xff1E90FF),
                     ),
                     child: FlatButton(
                       onPressed: () {
@@ -368,7 +375,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 child: Text(
                   "Anotações",
                   style: TextStyle(
-                    color: Colors.lightBlue,
+                    color: Color(0xff1E90FF),
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),

@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
       ),
+      title: "Helper",
       home: MainPage(),
     );
   }

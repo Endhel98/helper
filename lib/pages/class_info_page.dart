@@ -90,10 +90,31 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         });
         break;
       case Options.deleteClass:
-        setState(() {
-          widget.toDoList.remove(_editedClass);
-          Navigator.pop(context, _editedList);
-        });
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text("Tem certeza que deseja excluir a matéria?"),
+                content:
+                    Text("Se sim, a matéria será excluída permanentemente!"),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text("Cancelar"),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  FlatButton(
+                    child: Text("Sim"),
+                    onPressed: () {
+                      widget.toDoList.remove(_editedClass);
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                    },
+                  ),
+                ],
+              );
+            });
         break;
       default:
     }

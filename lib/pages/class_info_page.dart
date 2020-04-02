@@ -47,6 +47,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       _attendanceRoomController.text = _editedClass["attendanceRoom"];
     if (_editedClass["email"] != null)
       _emailController.text = _editedClass["email"];
+    if (_editedClass["annotations"] != null)
+      _annotationsController.text = _editedClass["annotations"];
   }
 
   void _addToDo() {
@@ -457,23 +459,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 width: 500,
                 padding: EdgeInsets.only(top: 20),
                 child: TextField(
-                  onTap: () {
-                    if (_annotationsController.text == "")
-                      _annotationsController.text = _editedClass["annotations"];
-                  },
                   maxLines: 100,
                   controller: _annotationsController,
                   decoration: InputDecoration(
-                    hintText: _editedClass["annotations"] == null ||
-                            _editedClass["annotations"].toString() == ""
-                        ? "Anotações"
-                        : _editedClass["annotations"],
-                    hintStyle: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 20,
-                    ),
                     filled: true,
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.grey[100],
                     border: InputBorder.none,
                   ),
                   style: TextStyle(fontSize: 20),

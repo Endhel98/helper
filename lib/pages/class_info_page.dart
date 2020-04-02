@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:helper/functionsJson/functions.dart';
 
+enum Options { cleanFields, resetAbsenses, deleteClass }
+
 class ClassInfoPage extends StatefulWidget {
   final Map<String, dynamic> toDoClass;
   final List toDoList;
@@ -69,6 +71,34 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     });
   }
 
+  void _options(Options result) {
+    switch (result) {
+      case Options.cleanFields:
+        setState(() {
+          _professorController.text = "";
+          _classRomController.text = "";
+          _firstHourController.text = "";
+          _secondHourController.text = "";
+          _attendanceRoomController.text = "";
+          _annotationsController.text = "";
+          _emailController.text = "";
+        });
+        break;
+      case Options.resetAbsenses:
+        setState(() {
+          _editedClass["absenses"] = 0;
+        });
+        break;
+      case Options.deleteClass:
+        setState(() {
+          widget.toDoList.remove(_editedClass);
+          Navigator.pop(context, _editedList);
+        });
+        break;
+      default:
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,11 +110,30 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
             color: Color(0xff1E90FF),
           ),
           title: Padding(
-            padding: EdgeInsets.only(top: 30, right: 25),
+            padding: EdgeInsets.only(top: 30),
             child: Image.asset(
               "images/Helper.png",
             ),
           ),
+          actions: <Widget>[
+            PopupMenuButton<Options>(
+              itemBuilder: (context) => <PopupMenuEntry<Options>>[
+                const PopupMenuItem<Options>(
+                  child: Text("Limpar todos os campos"),
+                  value: Options.cleanFields,
+                ),
+                const PopupMenuItem<Options>(
+                  child: Text("Zerar Faltas"),
+                  value: Options.resetAbsenses,
+                ),
+                const PopupMenuItem<Options>(
+                  child: Text("Excluir Matéria"),
+                  value: Options.deleteClass,
+                ),
+              ],
+              onSelected: _options,
+            )
+          ],
         ),
         preferredSize: Size.fromHeight(50),
       ),

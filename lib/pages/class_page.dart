@@ -14,10 +14,13 @@ class _ClassPageState extends State<ClassPage> {
   final _firstHourController = TextEditingController();
   final _secondHourController = TextEditingController();
   List _toDoList = [];
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
+
+    _classController.text = "";
 
     readData().then((data) {
       setState(() {
@@ -76,8 +79,10 @@ class _ClassPageState extends State<ClassPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _addToDo();
-          Navigator.pop(context, _toDoList);
+          if (_formKey.currentState.validate()) {
+            _addToDo();
+            Navigator.pop(context, _toDoList);
+          }
         },
         backgroundColor: Colors.white,
         child: Icon(
@@ -88,99 +93,132 @@ class _ClassPageState extends State<ClassPage> {
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: TextField(
-                controller: _classController,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.school,
-                    color: Colors.lightGreen,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: TextFormField(
+                  controller: _classController,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Informe o nome da Disciplina!';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.school,
+                      color: Colors.lightGreen,
+                    ),
+                    hintText: "Disciplina",
+                    hintStyle: TextStyle(fontSize: 20),
+                    fillColor: Colors.grey[100],
+                    filled: true,
+                    border: InputBorder.none,
                   ),
-                  hintText: "Disciplina",
-                  hintStyle: TextStyle(fontSize: 20),
-                  fillColor: Colors.grey[100],
-                  filled: true,
-                  border: InputBorder.none,
+                  style: TextStyle(fontSize: 20),
                 ),
-                style: TextStyle(fontSize: 20),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: TextField(
-                controller: _professorController,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.person_pin,
-                    color: Colors.red,
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: TextFormField(
+                  controller: _professorController,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Informe o nome do Professor!';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.person_pin,
+                      color: Colors.red,
+                    ),
+                    hintText: "Professor",
+                    hintStyle: TextStyle(fontSize: 20),
+                    fillColor: Colors.grey[100],
+                    filled: true,
+                    border: InputBorder.none,
                   ),
-                  hintText: "Professor",
-                  hintStyle: TextStyle(fontSize: 20),
-                  fillColor: Colors.grey[100],
-                  filled: true,
-                  border: InputBorder.none,
+                  style: TextStyle(fontSize: 20),
                 ),
-                style: TextStyle(fontSize: 20),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: TextField(
-                controller: _classRomController,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.class_,
-                    color: Colors.yellow,
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: TextFormField(
+                  controller: _classRomController,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Informe o número da Sala!';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.class_,
+                      color: Colors.yellow,
+                    ),
+                    hintText: "Sala",
+                    hintStyle: TextStyle(fontSize: 20),
+                    fillColor: Colors.grey[100],
+                    filled: true,
+                    border: InputBorder.none,
                   ),
-                  hintText: "Sala",
-                  hintStyle: TextStyle(fontSize: 20),
-                  fillColor: Colors.grey[100],
-                  filled: true,
-                  border: InputBorder.none,
+                  style: TextStyle(fontSize: 20),
                 ),
-                style: TextStyle(fontSize: 20),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: TextField(
-                controller: _firstHourController,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.watch_later,
-                    color: Colors.purple,
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: TextFormField(
+                  controller: _firstHourController,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Informe o horário!';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.watch_later,
+                      color: Colors.purple,
+                    ),
+                    hintText: "Horário do primeiro dia",
+                    hintStyle: TextStyle(fontSize: 20),
+                    fillColor: Colors.grey[100],
+                    filled: true,
+                    border: InputBorder.none,
                   ),
-                  hintText: "Horário do primeiro dia",
-                  hintStyle: TextStyle(fontSize: 20),
-                  fillColor: Colors.grey[100],
-                  filled: true,
-                  border: InputBorder.none,
+                  style: TextStyle(fontSize: 20),
                 ),
-                style: TextStyle(fontSize: 20),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: TextField(
-                controller: _secondHourController,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.watch_later,
-                    color: Colors.orange,
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: TextFormField(
+                  controller: _secondHourController,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Informe o horário!';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.watch_later,
+                      color: Colors.orange,
+                    ),
+                    hintText: "Horário do segundo dia",
+                    hintStyle: TextStyle(fontSize: 20),
+                    fillColor: Colors.grey[100],
+                    filled: true,
+                    border: InputBorder.none,
                   ),
-                  hintText: "Horário do segundo dia",
-                  hintStyle: TextStyle(fontSize: 20),
-                  fillColor: Colors.grey[100],
-                  filled: true,
-                  border: InputBorder.none,
+                  style: TextStyle(fontSize: 20),
                 ),
-                style: TextStyle(fontSize: 20),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -51,11 +51,33 @@ class _MainPageState extends State<MainPage> {
           color: Colors.white,
         ),
       ),
-      body: ListView.builder(
-        padding: EdgeInsets.only(top: 10.0),
-        itemBuilder: buildItem,
-        itemCount: _toDoList.length,
-      ),
+      body: _toDoList.isEmpty
+          ? Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Lista Vazia!",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Icon(
+                      Icons.sentiment_dissatisfied,
+                      color: Colors.red,
+                    ),
+                  )
+                ],
+              ),
+            )
+          : ListView.builder(
+              padding: EdgeInsets.only(top: 10.0),
+              itemBuilder: buildItem,
+              itemCount: _toDoList.length,
+            ),
     );
   }
 

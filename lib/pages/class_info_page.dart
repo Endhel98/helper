@@ -114,6 +114,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     child: Text("Sim"),
                     onPressed: () {
                       widget.toDoList.remove(_editedClass);
+                      saveData(widget.toDoList);
                       Navigator.pop(context);
                       Navigator.pop(context);
                     },

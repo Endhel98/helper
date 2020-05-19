@@ -205,7 +205,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(15),
                         child: Text(
-                          'Nome   ',
+                          'Nome',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],
@@ -224,7 +224,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(15),
                         child: Text(
-                          'Email   ',
+                          'Email',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],
@@ -243,7 +243,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(15),
                         child: Text(
-                          'Sala   ',
+                          'Sala',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],
@@ -277,7 +277,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(15),
                         child: Text(
-                          'Num   ',
+                          'Num',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],
@@ -311,7 +311,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(15),
                         child: Text(
-                          '1º Dia   ',
+                          '1º Dia',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],
@@ -330,7 +330,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(15),
                         child: Text(
-                          '2º Dia   ',
+                          '2º Dia',
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],

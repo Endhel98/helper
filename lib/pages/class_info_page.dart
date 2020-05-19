@@ -202,10 +202,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       filled: true,
                       fillColor: Colors.white,
                       border: InputBorder.none,
-                      prefixText: "Nome   ",
-                      prefixStyle: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          'Nome   ',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ),
                     ),
                     style: TextStyle(fontSize: 20),
@@ -216,10 +221,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       filled: true,
                       fillColor: Colors.white,
                       border: InputBorder.none,
-                      prefixText: "Email   ",
-                      prefixStyle: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          'Email   ',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ),
                     ),
                     style: TextStyle(fontSize: 20),
@@ -230,10 +240,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       filled: true,
                       fillColor: Colors.white,
                       border: InputBorder.none,
-                      prefixText: "Sala   ",
-                      prefixStyle: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          'Sala   ',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ),
                     ),
                     style: TextStyle(fontSize: 20),
@@ -259,10 +274,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       filled: true,
                       fillColor: Colors.white,
                       border: InputBorder.none,
-                      prefixText: "Num   ",
-                      prefixStyle: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          'Num   ',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ),
                     ),
                     style: TextStyle(fontSize: 20),
@@ -288,10 +308,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       filled: true,
                       fillColor: Colors.white,
                       border: InputBorder.none,
-                      prefixText: "1º Dia   ",
-                      prefixStyle: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          '1º Dia   ',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ),
                     ),
                     style: TextStyle(fontSize: 20),
@@ -302,10 +327,15 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                       filled: true,
                       fillColor: Colors.white,
                       border: InputBorder.none,
-                      prefixText: "2º Dia   ",
-                      prefixStyle: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[600],
+                      prefixIcon: Padding(
+                        padding: EdgeInsets.all(15),
+                        child: Text(
+                          '2º Dia   ',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
                       ),
                     ),
                     style: TextStyle(fontSize: 20),

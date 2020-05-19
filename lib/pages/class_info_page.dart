@@ -27,6 +27,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   final _annotationsController = TextEditingController();
   final _emailController = TextEditingController();
 
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
@@ -165,10 +167,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xff1E90FF),
         onPressed: () {
-          setState(() {
-            _addToDo();
-            Navigator.pop(context);
-          });
+          if (_formKey.currentState.validate()) {
+            setState(() {
+              _addToDo();
+              Navigator.pop(context);
+            });
+          }
         },
         child: Icon(
           Icons.save,
@@ -176,261 +180,288 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(30),
-          child: Column(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Container(
-                    color: Colors.blue[50],
-                    height: 27,
-                    width: 300,
-                    alignment: Alignment(0, 0),
-                    child: Text(
-                      "Professor",
-                      style: TextStyle(
-                        color: Color(0xff1E90FF),
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: _professorController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Text(
-                          'Nome',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  TextField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Text(
-                          'Email',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  TextField(
-                    controller: _attendanceRoomController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Text(
-                          'Sala',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  Divider(color: Colors.transparent),
-                  Container(
-                    color: Colors.blue[50],
-                    height: 27,
-                    width: 300,
-                    alignment: Alignment(0, 0),
-                    child: Text(
-                      "Sala",
-                      style: TextStyle(
-                        color: Color(0xff1E90FF),
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: _classRomController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Text(
-                          'Num',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  Divider(color: Colors.transparent),
-                  Container(
-                    color: Colors.blue[50],
-                    height: 27,
-                    width: 300,
-                    alignment: Alignment(0, 0),
-                    child: Text(
-                      "Horário",
-                      style: TextStyle(
-                        color: Color(0xff1E90FF),
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  TextField(
-                    controller: _firstHourController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Text(
-                          '1º Dia',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  TextField(
-                    controller: _secondHourController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                      prefixIcon: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Text(
-                          '2º Dia',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                      ),
-                    ),
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ],
-              ),
-              Divider(color: Colors.transparent),
-              Container(
-                color: Colors.blue[50],
-                height: 27,
-                width: 300,
-                alignment: Alignment(0, 0),
-                child: Text(
-                  "Faltas",
-                  style: TextStyle(
-                    color: Color(0xff1E90FF),
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Divider(color: Colors.transparent),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    height: 70.0,
-                    width: 70.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(0xff1E90FF),
-                    ),
-                    child: FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          _editedClass["absenses"]++;
-                        });
-                      },
+        child: Form(
+          key: _formKey,
+          child: Padding(
+            padding: EdgeInsets.all(30),
+            child: Column(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Container(
+                      color: Colors.blue[50],
+                      height: 27,
+                      width: 300,
+                      alignment: Alignment(0, 0),
                       child: Text(
-                        _editedClass['absenses'].toString(),
+                        "Professor",
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
+                          color: Color(0xff1E90FF),
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.remove_circle,
-                      color: Colors.red,
-                      size: 30,
+                    TextFormField(
+                      controller: _professorController,
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Campo Obrigatório!';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            'Nome',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 16),
                     ),
-                    onPressed: () {
-                      setState(() {
-                        if (_editedClass["absenses"] > 0)
-                          _editedClass["absenses"]--;
-                      });
-                    },
-                  ),
-                ],
-              ),
-              Divider(color: Colors.transparent),
-              Container(
-                color: Colors.blue[50],
-                height: 27,
-                width: 300,
-                alignment: Alignment(0, 0),
-                child: Text(
-                  "Anotações",
-                  style: TextStyle(
-                    color: Color(0xff1E90FF),
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
+                    TextField(
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    TextField(
+                      controller: _attendanceRoomController,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            'Sala',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Divider(color: Colors.transparent),
+                    Container(
+                      color: Colors.blue[50],
+                      height: 27,
+                      width: 300,
+                      alignment: Alignment(0, 0),
+                      child: Text(
+                        "Sala",
+                        style: TextStyle(
+                          color: Color(0xff1E90FF),
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    TextFormField(
+                      controller: _classRomController,
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Campo Obrigatório!';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            'Num',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    Divider(color: Colors.transparent),
+                    Container(
+                      color: Colors.blue[50],
+                      height: 27,
+                      width: 300,
+                      alignment: Alignment(0, 0),
+                      child: Text(
+                        "Horário",
+                        style: TextStyle(
+                          color: Color(0xff1E90FF),
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    TextFormField(
+                      controller: _firstHourController,
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Campo Obrigatório!';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            '1º Dia',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    TextFormField(
+                      controller: _secondHourController,
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Campo Obrigatório!';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        border: InputBorder.none,
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            '2º Dia',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                        ),
+                      ),
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+                Divider(color: Colors.transparent),
+                Container(
+                  color: Colors.blue[50],
+                  height: 27,
+                  width: 300,
+                  alignment: Alignment(0, 0),
+                  child: Text(
+                    "Faltas",
+                    style: TextStyle(
+                      color: Color(0xff1E90FF),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              Divider(color: Colors.transparent),
-              Container(
-                height: 500,
-                width: 500,
-                padding: EdgeInsets.only(top: 20),
-                child: TextField(
-                  maxLines: 100,
-                  controller: _annotationsController,
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.grey[100],
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(fontSize: 16),
+                Divider(color: Colors.transparent),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      height: 70.0,
+                      width: 70.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color(0xff1E90FF),
+                      ),
+                      child: FlatButton(
+                        onPressed: () {
+                          setState(() {
+                            _editedClass["absenses"]++;
+                          });
+                        },
+                        child: Text(
+                          _editedClass['absenses'].toString(),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.remove_circle,
+                        color: Colors.red,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (_editedClass["absenses"] > 0)
+                            _editedClass["absenses"]--;
+                        });
+                      },
+                    ),
+                  ],
                 ),
-              ),
-            ],
+                Divider(color: Colors.transparent),
+                Container(
+                  color: Colors.blue[50],
+                  height: 27,
+                  width: 300,
+                  alignment: Alignment(0, 0),
+                  child: Text(
+                    "Anotações",
+                    style: TextStyle(
+                      color: Color(0xff1E90FF),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Divider(color: Colors.transparent),
+                Container(
+                  height: 500,
+                  width: 500,
+                  padding: EdgeInsets.only(top: 20),
+                  child: TextField(
+                    maxLines: 100,
+                    controller: _annotationsController,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      border: InputBorder.none,
+                    ),
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

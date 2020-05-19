@@ -400,23 +400,6 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 ],
               ),
               Divider(color: Colors.transparent),
-              Row(
-                children: <Widget>[
-                  Icon(
-                    _editedClass["absenses"] < 8
-                        ? Icons.check_circle
-                        : Icons.warning,
-                    color: _editedClass["absenses"] < 8
-                        ? Colors.green
-                        : Colors.yellow[700],
-                  ),
-                  Text(
-                    _editedClass["absenses"] < 10 ? "" : "Reprovado por falta!",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Divider(color: Colors.transparent),
               Container(
                 color: Colors.blue[50],
                 height: 27,

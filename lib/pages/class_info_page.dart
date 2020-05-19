@@ -213,7 +213,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         ),
                       ),
                     ),
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 16),
                   ),
                   TextField(
                     controller: _emailController,
@@ -232,7 +232,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         ),
                       ),
                     ),
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 16),
                   ),
                   TextField(
                     controller: _attendanceRoomController,
@@ -251,7 +251,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         ),
                       ),
                     ),
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 16),
                   ),
                   Divider(color: Colors.transparent),
                   Container(
@@ -285,7 +285,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         ),
                       ),
                     ),
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 16),
                   ),
                   Divider(color: Colors.transparent),
                   Container(
@@ -319,7 +319,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         ),
                       ),
                     ),
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 16),
                   ),
                   TextField(
                     controller: _secondHourController,
@@ -338,7 +338,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                         ),
                       ),
                     ),
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 16),
                   ),
                 ],
               ),
@@ -427,7 +427,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     fillColor: Colors.grey[100],
                     border: InputBorder.none,
                   ),
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 16),
                 ),
               ),
             ],

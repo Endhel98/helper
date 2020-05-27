@@ -106,6 +106,11 @@ class _MainPageState extends State<MainPage>
         ),
         direction: DismissDirection.horizontal,
         child: Card(
+          elevation: 8,
+          color: Colors.white.withOpacity(0.8),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Column(

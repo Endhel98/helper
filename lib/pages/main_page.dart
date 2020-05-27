@@ -4,6 +4,7 @@ import 'package:helper/animations/growTransition.dart';
 import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/pages/class_info_page.dart';
 import 'package:helper/pages/class_page.dart';
+import 'package:helper/widgets/appBar.widget.dart';
 import 'package:helper/widgets/emptyList.widget.dart';
 
 class MainPage extends StatefulWidget {
@@ -48,19 +49,7 @@ class _MainPageState extends State<MainPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        child: AppBar(
-          backgroundColor: Colors.white,
-          title: Padding(
-            padding: EdgeInsets.only(top: 30, left: 20),
-            child: Image.asset(
-              "images/Helper.png",
-            ),
-          ),
-          centerTitle: true,
-        ),
-        preferredSize: Size.fromHeight(50),
-      ),
+      appBar: AppBarWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _showContactPage();

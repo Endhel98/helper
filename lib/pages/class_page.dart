@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:helper/functionsJson/functions.dart';
+import 'package:helper/widgets/textfield_classPage.widget.dart';
 
 class ClassPage extends StatefulWidget {
   @override
@@ -97,126 +98,41 @@ class _ClassPageState extends State<ClassPage> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: TextFormField(
-                  controller: _classController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Informe o nome da Disciplina!';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    icon: Icon(
-                      Icons.school,
-                      color: Colors.lightGreen,
-                    ),
-                    hintText: "Disciplina",
-                    hintStyle: TextStyle(fontSize: 20),
-                    fillColor: Colors.grey[100],
-                    filled: true,
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(fontSize: 20),
-                ),
+              TextFieldClassPage(
+                controller: _classController,
+                message: "Informe o nome da Disciplina!",
+                hintText: "Disciplina",
+                color: Colors.lightGreen,
+                icon: Icons.school,
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: TextFormField(
-                  controller: _professorController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Informe o nome do Professor!';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    icon: Icon(
-                      Icons.person_pin,
-                      color: Colors.red,
-                    ),
-                    hintText: "Professor",
-                    hintStyle: TextStyle(fontSize: 20),
-                    fillColor: Colors.grey[100],
-                    filled: true,
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(fontSize: 20),
-                ),
+              TextFieldClassPage(
+                controller: _professorController,
+                message: "Informe o nome do Professor!",
+                hintText: "Professor",
+                color: Colors.red,
+                icon: Icons.person_pin,
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: TextFormField(
-                  controller: _classRomController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Informe o número da Sala!';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    icon: Icon(
-                      Icons.class_,
-                      color: Colors.yellow,
-                    ),
-                    hintText: "Sala",
-                    hintStyle: TextStyle(fontSize: 20),
-                    fillColor: Colors.grey[100],
-                    filled: true,
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(fontSize: 20),
-                ),
+              TextFieldClassPage(
+                controller: _classRomController,
+                message: "Informe o número da Sala!",
+                hintText: "Sala",
+                color: Colors.yellow,
+                icon: Icons.class_,
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: TextFormField(
-                  controller: _firstHourController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Informe o horário!';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    icon: Icon(
-                      Icons.watch_later,
-                      color: Colors.purple,
-                    ),
-                    hintText: "Horário do primeiro dia",
-                    hintStyle: TextStyle(fontSize: 20),
-                    fillColor: Colors.grey[100],
-                    filled: true,
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(fontSize: 20),
-                ),
+              TextFieldClassPage(
+                controller: _professorController,
+                message: "Informe o horário!",
+                hintText: "Horário do primeiro dia",
+                color: Colors.purple,
+                icon: Icons.watch_later,
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: TextFormField(
-                  controller: _secondHourController,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return 'Informe o horário!';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    icon: Icon(
-                      Icons.watch_later,
-                      color: Colors.orange,
-                    ),
-                    hintText: "Horário do segundo dia",
-                    hintStyle: TextStyle(fontSize: 20),
-                    fillColor: Colors.grey[100],
-                    filled: true,
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(fontSize: 20),
-                ),
-              )
+              TextFieldClassPage(
+                controller: _professorController,
+                message: "Informe o horário!",
+                hintText: "Horário do segundo dia",
+                color: Colors.orange,
+                icon: Icons.watch_later,
+              ),
             ],
           ),
         ),

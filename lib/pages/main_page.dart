@@ -1,28 +1,47 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:helper/animations/growTransition.dart';
 import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/pages/class_info_page.dart';
 import 'package:helper/pages/class_page.dart';
+import 'package:helper/widgets/emptyList.widget.dart';
 
 class MainPage extends StatefulWidget {
   @override
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<MainPage>
+    with SingleTickerProviderStateMixin {
   Map<String, dynamic> _lastRemoved;
   int _lastRemovedPos;
   List _toDoList = [];
+  AnimationController controller;
+  Animation<double> animation;
 
   @override
   void initState() {
     super.initState();
+
+    controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+    animation = Tween<double>(begin: 0, end: 300).animate(controller);
+
+    controller.forward();
 
     readData().then((data) {
       setState(() {
         _toDoList = json.decode(data);
       });
     });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -52,26 +71,9 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       body: _toDoList.isEmpty
-          ? Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Lista Vazia!",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Icon(
-                      Icons.sentiment_dissatisfied,
-                      color: Colors.red,
-                    ),
-                  )
-                ],
-              ),
+          ? GrowTransition(
+              child: EmptyList(),
+              animation: animation,
             )
           : ListView.builder(
               padding: EdgeInsets.only(top: 10.0),

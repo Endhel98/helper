@@ -18,27 +18,36 @@ class TextFieldClassPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 20),
-      child: TextFormField(
-        controller: controller,
-        validator: (value) {
-          if (value.isEmpty) {
-            return message;
-          }
-          return null;
-        },
-        decoration: InputDecoration(
-          icon: Icon(
-            icon,
-            color: color,
-          ),
-          hintText: hintText,
-          hintStyle: TextStyle(fontSize: 20),
-          fillColor: Colors.grey[100],
-          filled: true,
-          border: InputBorder.none,
+      padding: EdgeInsets.only(top: 20, right: 20),
+      child: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Colors.blue[50],
+          borderRadius: BorderRadius.circular(32),
         ),
-        style: TextStyle(fontSize: 20),
+        child: TextFormField(
+          controller: controller,
+          validator: (value) {
+            if (value.isEmpty) {
+              return message;
+            }
+            return null;
+          },
+          decoration: InputDecoration(
+            icon: Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Icon(
+                icon,
+                color: color,
+              ),
+            ),
+            hintText: hintText,
+            hintStyle: TextStyle(fontSize: 16),
+            fillColor: Colors.blue[50],
+            border: InputBorder.none,
+          ),
+          style: TextStyle(fontSize: 18),
+        ),
       ),
     );
   }

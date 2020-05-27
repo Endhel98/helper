@@ -47,6 +47,7 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         child: AppBar(
           backgroundColor: Colors.white,
@@ -85,10 +86,10 @@ class _ClassPageState extends State<ClassPage> {
             Navigator.pop(context, _toDoList);
           }
         },
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xff1E90FF),
         child: Icon(
           Icons.save,
-          color: Colors.lightBlue,
+          color: Colors.white,
           size: 30,
         ),
       ),

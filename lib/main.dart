@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:helper/pages/main_page.dart';
+import 'package:helper/pages/home_page.dart';
 
-void main() => runApp(HomePage());
+void main() => runApp(MainPage());
 
-class HomePage extends StatelessWidget {
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
       ),
       title: "Helper",
-      home: MainPage(),
+      home: HomePage(),
     );
   }
 }

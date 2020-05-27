@@ -106,7 +106,7 @@ class _MainPageState extends State<HomePage>
         ),
         direction: DismissDirection.horizontal,
         child: Card(
-          elevation: 8,
+          elevation: 4,
           color: Colors.white.withOpacity(0.8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
@@ -141,7 +141,7 @@ class _MainPageState extends State<HomePage>
                   isClassField: false,
                 ),
                 Information(
-                  info: _toDoList[index]["firstHour"],
+                  info: _toDoList[index]["secondHour"],
                   color: Colors.orange,
                   icon: Icons.watch_later,
                   isClassField: false,

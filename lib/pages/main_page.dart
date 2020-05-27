@@ -6,6 +6,7 @@ import 'package:helper/pages/class_info_page.dart';
 import 'package:helper/pages/class_page.dart';
 import 'package:helper/widgets/appBar.widget.dart';
 import 'package:helper/widgets/emptyList.widget.dart';
+import 'package:helper/widgets/information.widget.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -110,106 +111,35 @@ class _MainPageState extends State<MainPage>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(5),
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.school,
-                          color: Colors.lightGreen,
-                        ),
-                      ),
-                      Container(
-                        width: 285,
-                        child: Text(
-                          _toDoList[index]["class"],
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                Information(
+                  info: _toDoList[index]["class"],
+                  color: Colors.lightGreen,
+                  icon: Icons.school,
+                  isClassField: true,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.person_pin,
-                          color: Colors.red,
-                        ),
-                      ),
-                      Container(
-                        width: 285,
-                        child: Text(
-                          _toDoList[index]["professor"],
-                          style: TextStyle(fontSize: 18, color: Colors.grey),
-                        ),
-                      ),
-                    ],
-                  ),
+                Information(
+                  info: _toDoList[index]["professor"],
+                  color: Colors.red,
+                  icon: Icons.person_pin,
+                  isClassField: false,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.class_,
-                          color: Colors.yellow,
-                        ),
-                      ),
-                      Container(
-                        width: 285,
-                        child: Text(
-                          _toDoList[index]["classRom"],
-                          style: TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                      ),
-                    ],
-                  ),
+                Information(
+                  info: _toDoList[index]["classRom"],
+                  color: Colors.yellow,
+                  icon: Icons.class_,
+                  isClassField: false,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
-                  child: Row(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.watch_later,
-                          color: Colors.purple,
-                        ),
-                      ),
-                      Container(
-                        width: 120,
-                        child: Text(
-                          _toDoList[index]["firstHour"],
-                          style: TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10, left: 20),
-                        child: Icon(
-                          Icons.watch_later,
-                          color: Colors.orange,
-                        ),
-                      ),
-                      Container(
-                        width: 110,
-                        child: Text(
-                          _toDoList[index]["secondHour"],
-                          style: TextStyle(fontSize: 16, color: Colors.grey),
-                        ),
-                      ),
-                    ],
-                  ),
+                Information(
+                  info: _toDoList[index]["firstHour"],
+                  color: Colors.purple,
+                  icon: Icons.watch_later,
+                  isClassField: false,
+                ),
+                Information(
+                  info: _toDoList[index]["firstHour"],
+                  color: Colors.orange,
+                  icon: Icons.watch_later,
+                  isClassField: false,
                 ),
               ],
             ),

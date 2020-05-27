@@ -121,14 +121,14 @@ class _ClassPageState extends State<ClassPage> {
                 icon: Icons.class_,
               ),
               TextFieldClassPage(
-                controller: _professorController,
+                controller: _firstHourController,
                 message: "Informe o horário!",
                 hintText: "Horário do primeiro dia",
                 color: Colors.purple,
                 icon: Icons.watch_later,
               ),
               TextFieldClassPage(
-                controller: _professorController,
+                controller: _secondHourController,
                 message: "Informe o horário!",
                 hintText: "Horário do segundo dia",
                 color: Colors.orange,

@@ -47,16 +47,16 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1E90FF),
+      backgroundColor: Colors.deepPurpleAccent,
       appBar: PreferredSize(
         child: AppBar(
-          backgroundColor: Color(0xff1E90FF),
+          backgroundColor: Colors.deepPurpleAccent,
           elevation: 0,
           iconTheme: IconThemeData(
             color: Colors.white,
           ),
           title: Text(
-            "Helper",
+            "HELPER",
             style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
@@ -88,7 +88,7 @@ class _ClassPageState extends State<ClassPage> {
         backgroundColor: Colors.white,
         child: Icon(
           Icons.save,
-          color: Color(0xff1E90FF),
+          color: Colors.deepPurpleAccent,
           size: 30,
         ),
       ),

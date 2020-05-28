@@ -3,51 +3,50 @@ import 'package:flutter/material.dart';
 class TextFieldClassPage extends StatelessWidget {
   final controller;
   final message;
-  final hintText;
-  final icon;
-  final color;
+  final labelText;
 
   TextFieldClassPage({
     @required this.controller,
     @required this.message,
-    @required this.hintText,
-    @required this.color,
-    @required this.icon,
+    @required this.labelText,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 20, right: 20),
-      child: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: Colors.blue[50],
-          borderRadius: BorderRadius.circular(32),
-        ),
-        child: TextFormField(
-          controller: controller,
-          validator: (value) {
-            if (value.isEmpty) {
-              return message;
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            icon: Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: Icon(
-                icon,
-                color: color,
-              ),
-            ),
-            hintText: hintText,
-            hintStyle: TextStyle(fontSize: 16),
-            fillColor: Colors.blue[50],
-            border: InputBorder.none,
+      padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
+      child: TextFormField(
+        controller: controller,
+        textAlign: TextAlign.center,
+        validator: (value) {
+          if (value.isEmpty) {
+            return message;
+          }
+          return null;
+        },
+        decoration: InputDecoration(
+          labelText: labelText,
+          labelStyle: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
-          style: TextStyle(fontSize: 18),
+          border: OutlineInputBorder(),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white, width: 2),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white, width: 2),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white, width: 2),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white, width: 2),
+          ),
+          errorStyle: TextStyle(color: Colors.white),
         ),
+        style: TextStyle(fontSize: 14, color: Colors.white),
       ),
     );
   }

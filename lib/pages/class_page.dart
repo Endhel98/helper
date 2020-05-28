@@ -47,18 +47,17 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xff1E90FF),
       appBar: PreferredSize(
         child: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xff1E90FF),
+          elevation: 0,
           iconTheme: IconThemeData(
-            color: Color(0xff1E90FF),
+            color: Colors.white,
           ),
-          title: Padding(
-            padding: EdgeInsets.only(top: 30),
-            child: Image.asset(
-              "images/Helper.png",
-            ),
+          title: Text(
+            "Helper",
+            style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
           actions: <Widget>[
@@ -86,10 +85,10 @@ class _ClassPageState extends State<ClassPage> {
             Navigator.pop(context, _toDoList);
           }
         },
-        backgroundColor: Color(0xff1E90FF),
+        backgroundColor: Colors.white,
         child: Icon(
           Icons.save,
-          color: Colors.white,
+          color: Color(0xff1E90FF),
           size: 30,
         ),
       ),
@@ -98,41 +97,32 @@ class _ClassPageState extends State<ClassPage> {
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               TextFieldClassPage(
                 controller: _classController,
                 message: "Informe o nome da Disciplina!",
-                hintText: "Disciplina",
-                color: Colors.lightGreen,
-                icon: Icons.school,
+                labelText: "Disciplina",
               ),
               TextFieldClassPage(
                 controller: _professorController,
                 message: "Informe o nome do Professor!",
-                hintText: "Professor",
-                color: Colors.red,
-                icon: Icons.person_pin,
+                labelText: "Professor",
               ),
               TextFieldClassPage(
                 controller: _classRomController,
                 message: "Informe o número da Sala!",
-                hintText: "Sala",
-                color: Colors.yellow,
-                icon: Icons.class_,
+                labelText: "Sala",
               ),
               TextFieldClassPage(
                 controller: _firstHourController,
                 message: "Informe o horário!",
-                hintText: "Horário do primeiro dia",
-                color: Colors.purple,
-                icon: Icons.watch_later,
+                labelText: "Horário do primeiro dia",
               ),
               TextFieldClassPage(
                 controller: _secondHourController,
                 message: "Informe o horário!",
-                hintText: "Horário do segundo dia",
-                color: Colors.orange,
-                icon: Icons.watch_later,
+                labelText: "Horário do segundo dia",
               ),
             ],
           ),

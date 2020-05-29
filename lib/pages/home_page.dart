@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:helper/animations/growTransition.dart';
 import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/pages/class_info_page.dart';
-import 'package:helper/pages/class_page.dart';
-import 'package:helper/widgets/appBar.widget.dart';
 import 'package:helper/widgets/emptyList.widget.dart';
 import 'package:helper/widgets/information.widget.dart';
 
@@ -49,18 +47,7 @@ class _MainPageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBarWidget(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _showContactPage();
-        },
-        backgroundColor: Color(0xff1E90FF),
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-      ),
+      backgroundColor: Colors.deepPurpleAccent,
       body: _toDoList.isEmpty
           ? GrowTransition(
               child: EmptyList(),
@@ -107,7 +94,7 @@ class _MainPageState extends State<HomePage>
         direction: DismissDirection.horizontal,
         child: Card(
           elevation: 4,
-          color: Colors.white.withOpacity(0.8),
+          color: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
           ),
@@ -181,12 +168,12 @@ class _MainPageState extends State<HomePage>
     );
   }
 
-  void _showContactPage() async {
-    final recList = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ClassPage()),
-    );
+  // void _showContactPage() async {
+  //   final recList = await Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => ClassPage()),
+  //   );
 
-    if (recList != null) _toDoList = recList;
-  }
+  //   if (recList != null) _toDoList = recList;
+  // }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helper/pages/home_page.dart';
+import 'package:helper/pages/teste.dart';
 
 void main() => runApp(MainPage());
 
@@ -12,7 +12,7 @@ class MainPage extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
       ),
       title: "Helper",
-      home: HomePage(),
+      home: Teste(),
     );
   }
 }

@@ -48,36 +48,6 @@ class _ClassPageState extends State<ClassPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurpleAccent,
-      appBar: PreferredSize(
-        child: AppBar(
-          backgroundColor: Colors.deepPurpleAccent,
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: Colors.white,
-          ),
-          title: Text(
-            "HELPER",
-            style: TextStyle(color: Colors.white),
-          ),
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.refresh,
-                size: 25,
-              ),
-              onPressed: () {
-                _classController.clear();
-                _classRomController.clear();
-                _firstHourController.clear();
-                _secondHourController.clear();
-                _professorController.clear();
-              },
-            )
-          ],
-        ),
-        preferredSize: Size.fromHeight(50),
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (_formKey.currentState.validate()) {

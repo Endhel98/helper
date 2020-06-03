@@ -4,8 +4,8 @@ import 'package:helper/animations/growTransition.dart';
 import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/pages/class_info_page.dart';
 import 'package:helper/pages/class_page.dart';
-import 'package:helper/widgets/emptyList.widget.dart';
-import 'package:helper/widgets/information.widget.dart';
+import 'package:helper/widgets/homePage/emptyList.widget.dart';
+import 'package:helper/widgets/homePage/information.widget.dart';
 
 class HomePage extends StatefulWidget {
   @override

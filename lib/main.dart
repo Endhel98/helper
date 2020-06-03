@@ -9,7 +9,7 @@ class MainPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
+        primarySwatch: Colors.deepPurple,
       ),
       title: "Helper",
       home: HomePage(),

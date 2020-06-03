@@ -47,7 +47,42 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent.withOpacity(0.2),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.deepPurpleAccent,
+        ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "HELPER",
+              style: TextStyle(
+                color: Colors.deepPurpleAccent,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              ),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Icon(
+              Icons.import_contacts,
+              color: Colors.deepPurpleAccent,
+              size: 35,
+            )
+          ],
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.refresh),
+            onPressed: () {},
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (_formKey.currentState.validate()) {
@@ -62,39 +97,42 @@ class _ClassPageState extends State<ClassPage> {
           size: 30,
         ),
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              TextFieldClassPage(
-                controller: _classController,
-                message: "Informe o nome da Disciplina!",
-                labelText: "Disciplina",
-              ),
-              TextFieldClassPage(
-                controller: _professorController,
-                message: "Informe o nome do Professor!",
-                labelText: "Professor",
-              ),
-              TextFieldClassPage(
-                controller: _classRomController,
-                message: "Informe o número da Sala!",
-                labelText: "Sala",
-              ),
-              TextFieldClassPage(
-                controller: _firstHourController,
-                message: "Informe o horário!",
-                labelText: "Horário do primeiro dia",
-              ),
-              TextFieldClassPage(
-                controller: _secondHourController,
-                message: "Informe o horário!",
-                labelText: "Horário do segundo dia",
-              ),
-            ],
+      body: Padding(
+        padding: EdgeInsets.only(top: 20),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(10),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                TextFieldClassPage(
+                  controller: _classController,
+                  message: "Informe o nome da Disciplina!",
+                  labelText: "Disciplina",
+                ),
+                TextFieldClassPage(
+                  controller: _professorController,
+                  message: "Informe o nome do Professor!",
+                  labelText: "Professor",
+                ),
+                TextFieldClassPage(
+                  controller: _classRomController,
+                  message: "Informe o número da Sala!",
+                  labelText: "Sala",
+                ),
+                TextFieldClassPage(
+                  controller: _firstHourController,
+                  message: "Informe o horário!",
+                  labelText: "Horário do primeiro dia",
+                ),
+                TextFieldClassPage(
+                  controller: _secondHourController,
+                  message: "Informe o horário!",
+                  labelText: "Horário do segundo dia",
+                ),
+              ],
+            ),
           ),
         ),
       ),

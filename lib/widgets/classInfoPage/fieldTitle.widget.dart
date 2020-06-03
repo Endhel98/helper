@@ -10,7 +10,6 @@ class FieldTitle extends StatelessWidget {
     return Container(
       color: Colors.deepPurpleAccent.withOpacity(0.15),
       height: 27,
-      width: 300,
       alignment: Alignment(0, 0),
       child: Text(
         title,

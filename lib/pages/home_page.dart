@@ -26,9 +26,9 @@ class _MainPageState extends State<HomePage>
 
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
     );
-    animation = Tween<double>(begin: 0, end: 300).animate(controller);
+    animation = Tween<double>(begin: 0, end: 250).animate(controller);
 
     controller.forward();
 

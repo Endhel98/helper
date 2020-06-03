@@ -29,22 +29,28 @@ class TextFieldClassPage extends StatelessWidget {
           labelStyle: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: Colors.deepPurpleAccent,
           ),
+          fillColor: Colors.deepPurpleAccent.withOpacity(0.15),
+          filled: true,
           border: OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white, width: 2),
+            borderSide: BorderSide(
+                color: Colors.deepPurpleAccent.withOpacity(0.15), width: 2),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white, width: 2),
+            borderSide: BorderSide(
+                color: Colors.deepPurpleAccent.withOpacity(0.15), width: 2),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white, width: 2),
+            borderSide: BorderSide(
+                color: Colors.deepPurpleAccent.withOpacity(0.15), width: 2),
           ),
           errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white, width: 2),
+            borderSide: BorderSide(
+                color: Colors.deepPurpleAccent.withOpacity(0.15), width: 2),
           ),
-          errorStyle: TextStyle(color: Colors.white),
+          errorStyle: TextStyle(color: Colors.deepPurpleAccent),
         ),
         style: TextStyle(fontSize: 14, color: Colors.white),
       ),

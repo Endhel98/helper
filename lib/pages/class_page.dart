@@ -47,7 +47,7 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (_formKey.currentState.validate()) {
@@ -55,10 +55,10 @@ class _ClassPageState extends State<ClassPage> {
             Navigator.pop(context, _toDoList);
           }
         },
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.deepPurpleAccent,
         child: Icon(
           Icons.save,
-          color: Colors.deepPurpleAccent,
+          color: Colors.white,
           size: 30,
         ),
       ),

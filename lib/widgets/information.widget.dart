@@ -16,7 +16,7 @@ class Information extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 5, left: 6, top: 5),
+      padding: EdgeInsets.only(bottom: 5, top: 5),
       child: Row(
         children: <Widget>[
           Padding(

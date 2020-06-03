@@ -47,7 +47,7 @@ class _MainPageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Colors.deepPurpleAccent.withOpacity(0.15),
       body: _toDoList.isEmpty
           ? GrowTransition(
               child: EmptyList(),
@@ -78,62 +78,65 @@ class _MainPageState extends State<HomePage>
       child: Dismissible(
         key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
         background: Container(
-          color: Colors.red,
+          color: Colors.deepPurpleAccent.withOpacity(0.2),
           child: Align(
             alignment: Alignment(-0.9, 0.0),
             child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
         secondaryBackground: Container(
-          color: Colors.red,
+          color: Colors.deepPurpleAccent.withOpacity(0.2),
           child: Align(
             alignment: Alignment(0.9, 0.0),
             child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
         direction: DismissDirection.horizontal,
-        child: Card(
-          elevation: 4,
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Information(
-                  info: _toDoList[index]["class"],
-                  color: Colors.lightGreen,
-                  icon: Icons.school,
-                  isClassField: true,
-                ),
-                Information(
-                  info: _toDoList[index]["professor"],
-                  color: Colors.red,
-                  icon: Icons.person_pin,
-                  isClassField: false,
-                ),
-                Information(
-                  info: _toDoList[index]["classRom"],
-                  color: Colors.yellow,
-                  icon: Icons.class_,
-                  isClassField: false,
-                ),
-                Information(
-                  info: _toDoList[index]["firstHour"],
-                  color: Colors.purple,
-                  icon: Icons.watch_later,
-                  isClassField: false,
-                ),
-                Information(
-                  info: _toDoList[index]["secondHour"],
-                  color: Colors.orange,
-                  icon: Icons.watch_later,
-                  isClassField: false,
-                ),
-              ],
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Card(
+            elevation: 4,
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Information(
+                    info: _toDoList[index]["class"],
+                    color: Colors.green,
+                    icon: Icons.school,
+                    isClassField: true,
+                  ),
+                  Information(
+                    info: _toDoList[index]["professor"],
+                    color: Colors.red,
+                    icon: Icons.person_pin,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["classRom"],
+                    color: Colors.yellow,
+                    icon: Icons.class_,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["firstHour"],
+                    color: Colors.purple,
+                    icon: Icons.watch_later,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["secondHour"],
+                    color: Colors.orange,
+                    icon: Icons.watch_later,
+                    isClassField: false,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

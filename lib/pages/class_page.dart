@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:helper/functionsJson/functions.dart';
-import 'package:helper/widgets/textfield_classPage.widget.dart';
+import 'package:helper/widgets/classPage/textfield_classPage.widget.dart';
 
 class ClassPage extends StatefulWidget {
   @override

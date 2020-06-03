@@ -52,7 +52,7 @@ class _MainPageState extends State<HomePage>
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        elevation: 0,
+        elevation: 0.8,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

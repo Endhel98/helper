@@ -50,8 +50,8 @@ class _ClassPageState extends State<ClassPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        elevation: 0.8,
         centerTitle: true,
-        elevation: 0,
         iconTheme: IconThemeData(
           color: Colors.deepPurpleAccent,
         ),

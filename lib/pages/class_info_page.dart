@@ -134,14 +134,30 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       appBar: PreferredSize(
         child: AppBar(
           backgroundColor: Colors.white,
+          elevation: 0.8,
           iconTheme: IconThemeData(
-            color: Color(0xff1E90FF),
+            color: Colors.deepPurpleAccent,
           ),
-          title: Padding(
-            padding: EdgeInsets.only(top: 30),
-            child: Image.asset(
-              "images/Helper.png",
-            ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "HELPER",
+                style: TextStyle(
+                  color: Colors.deepPurpleAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Icon(
+                Icons.import_contacts,
+                color: Colors.deepPurpleAccent,
+                size: 35,
+              )
+            ],
           ),
           actions: <Widget>[
             PopupMenuButton<Options>(
@@ -166,7 +182,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         preferredSize: Size.fromHeight(50),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xff1E90FF),
+        backgroundColor: Colors.deepPurpleAccent,
         onPressed: () {
           if (_formKey.currentState.validate()) {
             setState(() {

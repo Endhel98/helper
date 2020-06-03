@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:helper/animations/growTransition.dart';
 import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/pages/class_info_page.dart';
+import 'package:helper/pages/class_page.dart';
 import 'package:helper/widgets/emptyList.widget.dart';
 import 'package:helper/widgets/information.widget.dart';
 
@@ -47,7 +48,42 @@ class _MainPageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent.withOpacity(0.15),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "HELPER",
+              style: TextStyle(
+                color: Colors.deepPurpleAccent,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              ),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Icon(
+              Icons.import_contacts,
+              color: Colors.deepPurpleAccent,
+              size: 35,
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.deepPurpleAccent,
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            _showClassPage();
+          }),
       body: _toDoList.isEmpty
           ? GrowTransition(
               child: EmptyList(),
@@ -125,13 +161,13 @@ class _MainPageState extends State<HomePage>
                   ),
                   Information(
                     info: _toDoList[index]["firstHour"],
-                    color: Colors.purple,
+                    color: Colors.black,
                     icon: Icons.watch_later,
                     isClassField: false,
                   ),
                   Information(
                     info: _toDoList[index]["secondHour"],
-                    color: Colors.orange,
+                    color: Colors.blue,
                     icon: Icons.watch_later,
                     isClassField: false,
                   ),
@@ -171,12 +207,12 @@ class _MainPageState extends State<HomePage>
     );
   }
 
-  // void _showContactPage() async {
-  //   final recList = await Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => ClassPage()),
-  //   );
+  void _showClassPage() async {
+    final recList = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ClassPage()),
+    );
 
-  //   if (recList != null) _toDoList = recList;
-  // }
+    if (recList != null) _toDoList = recList;
+  }
 }

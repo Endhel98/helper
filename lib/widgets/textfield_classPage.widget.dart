@@ -48,7 +48,7 @@ class TextFieldClassPage extends StatelessWidget {
           ),
           errorStyle: TextStyle(color: Colors.deepPurpleAccent),
         ),
-        style: TextStyle(fontSize: 14, color: Colors.white),
+        style: TextStyle(fontSize: 14, color: Colors.deepPurpleAccent),
       ),
     );
   }

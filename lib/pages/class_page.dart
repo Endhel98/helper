@@ -39,9 +39,18 @@ class _ClassPageState extends State<ClassPage> {
       newToDo["firstHour"] = _firstHourController.text;
       newToDo["secondHour"] = _secondHourController.text;
       newToDo["absenses"] = 0;
+      newToDo["filed"] = false;
       _toDoList.add(newToDo);
       saveData(_toDoList);
     });
+  }
+
+  void _cleanFields() {
+    _classController.clear();
+    _professorController.clear();
+    _classRomController.clear();
+    _firstHourController.clear();
+    _secondHourController.clear();
   }
 
   @override
@@ -79,7 +88,9 @@ class _ClassPageState extends State<ClassPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.refresh),
-            onPressed: () {},
+            onPressed: () {
+              _cleanFields();
+            },
           )
         ],
       ),

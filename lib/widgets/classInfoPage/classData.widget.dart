@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helper/widgets/classInfoPage/fieldTitle.widget.dart';
 
 class ClassData extends StatelessWidget {
   final professorController;
@@ -21,20 +22,7 @@ class ClassData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          color: Colors.blue[50],
-          height: 27,
-          width: 300,
-          alignment: Alignment(0, 0),
-          child: Text(
-            "Professor",
-            style: TextStyle(
-              color: Color(0xff1E90FF),
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        FieldTitle(title: "Professor"),
         TextFormField(
           controller: professorController,
           validator: (value) {
@@ -99,20 +87,7 @@ class ClassData extends StatelessWidget {
           style: TextStyle(fontSize: 16),
         ),
         Divider(color: Colors.transparent),
-        Container(
-          color: Colors.blue[50],
-          height: 27,
-          width: 300,
-          alignment: Alignment(0, 0),
-          child: Text(
-            "Sala",
-            style: TextStyle(
-              color: Color(0xff1E90FF),
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        FieldTitle(title: "Sala"),
         TextFormField(
           controller: classRomController,
           validator: (value) {
@@ -139,20 +114,7 @@ class ClassData extends StatelessWidget {
           style: TextStyle(fontSize: 16),
         ),
         Divider(color: Colors.transparent),
-        Container(
-          color: Colors.blue[50],
-          height: 27,
-          width: 300,
-          alignment: Alignment(0, 0),
-          child: Text(
-            "Horário",
-            style: TextStyle(
-              color: Color(0xff1E90FF),
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        FieldTitle(title: "Horário"),
         TextFormField(
           controller: firstHourController,
           validator: (value) {

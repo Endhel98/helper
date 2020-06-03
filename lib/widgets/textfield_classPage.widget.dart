@@ -31,6 +31,8 @@ class TextFieldClassPage extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.deepPurpleAccent,
           ),
+          fillColor: Colors.deepPurpleAccent.withOpacity(0.15),
+          filled: true,
           border: OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.deepPurpleAccent, width: 2),

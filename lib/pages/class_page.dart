@@ -39,7 +39,6 @@ class _ClassPageState extends State<ClassPage> {
       newToDo["firstHour"] = _firstHourController.text;
       newToDo["secondHour"] = _secondHourController.text;
       newToDo["absenses"] = 0;
-      newToDo["filed"] = false;
       _toDoList.add(newToDo);
       saveData(_toDoList);
     });

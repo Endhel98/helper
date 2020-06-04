@@ -121,115 +121,88 @@ class _MainPageState extends State<HomePage>
           ),
         ),
         secondaryBackground: Container(
-          color: Colors.green.withOpacity(0.8),
+          color: Colors.red.withOpacity(0.8),
           child: Align(
             alignment: Alignment(0.9, 0.0),
-            child: Icon(Icons.archive, color: Colors.white),
+            child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
         direction: DismissDirection.horizontal,
-        child: !_toDoList[index]["filed"]
-            ? null
-            : Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Card(
-                  elevation: 4,
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Card(
+            elevation: 4,
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Information(
+                    info: _toDoList[index]["class"],
+                    color: Colors.green,
+                    icon: Icons.school,
+                    isClassField: true,
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Information(
-                          info: _toDoList[index]["class"],
-                          color: Colors.green,
-                          icon: Icons.school,
-                          isClassField: true,
-                        ),
-                        Information(
-                          info: _toDoList[index]["professor"],
-                          color: Colors.red,
-                          icon: Icons.person_pin,
-                          isClassField: false,
-                        ),
-                        Information(
-                          info: _toDoList[index]["classRom"],
-                          color: Colors.yellow,
-                          icon: Icons.class_,
-                          isClassField: false,
-                        ),
-                        Information(
-                          info: _toDoList[index]["firstHour"],
-                          color: Colors.black,
-                          icon: Icons.watch_later,
-                          isClassField: false,
-                        ),
-                        Information(
-                          info: _toDoList[index]["secondHour"],
-                          color: Colors.blue,
-                          icon: Icons.watch_later,
-                          isClassField: false,
-                        ),
-                      ],
-                    ),
+                  Information(
+                    info: _toDoList[index]["professor"],
+                    color: Colors.red,
+                    icon: Icons.person_pin,
+                    isClassField: false,
                   ),
-                ),
+                  Information(
+                    info: _toDoList[index]["classRom"],
+                    color: Colors.yellow,
+                    icon: Icons.class_,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["firstHour"],
+                    color: Colors.black,
+                    icon: Icons.watch_later,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["secondHour"],
+                    color: Colors.blue,
+                    icon: Icons.watch_later,
+                    isClassField: false,
+                  ),
+                ],
               ),
+            ),
+          ),
+        ),
         onDismissed: (direction) {
-          direction == DismissDirection.endToStart
-              ? setState(() {
-                  _toDoList[index]["filed"] = true;
+          setState(() {
+            _lastRemoved = Map.from(_toDoList[index]);
+            _lastRemovedPos = index;
+            _toDoList.removeAt(index);
 
-                  saveData(_toDoList);
+            saveData(_toDoList);
 
-                  final snack = SnackBar(
-                    content: Text(
-                        "Disciplina \"${_toDoList[index]['class']}\" arquivada!"),
-                    action: SnackBarAction(
-                      label: "Desfazer",
-                      textColor: Colors.deepPurpleAccent,
-                      onPressed: () {
-                        setState(() {
-                          _toDoList[index]["filed"] = false;
-                          saveData(_toDoList);
-                        });
-                      },
-                    ),
-                    duration: Duration(seconds: 2),
-                  );
+            final snack = SnackBar(
+              content:
+                  Text("Disciplina \"${_lastRemoved['class']}\" removida!"),
+              action: SnackBarAction(
+                label: "Desfazer",
+                textColor: Colors.deepPurpleAccent,
+                onPressed: () {
+                  setState(() {
+                    _toDoList.insert(_lastRemovedPos, _lastRemoved);
+                    saveData(_toDoList);
+                  });
+                },
+              ),
+              duration: Duration(seconds: 2),
+            );
 
-                  Scaffold.of(context).removeCurrentSnackBar();
-                  Scaffold.of(context).showSnackBar(snack);
-                })
-              : setState(() {
-                  _lastRemoved = Map.from(_toDoList[index]);
-                  _lastRemovedPos = index;
-                  _toDoList.removeAt(index);
-
-                  saveData(_toDoList);
-
-                  final snack = SnackBar(
-                    content: Text(
-                        "Disciplina \"${_lastRemoved['class']}\" removida!"),
-                    action: SnackBarAction(
-                      label: "Desfazer",
-                      textColor: Colors.deepPurpleAccent,
-                      onPressed: () {
-                        setState(() {
-                          _toDoList.insert(_lastRemovedPos, _lastRemoved);
-                          saveData(_toDoList);
-                        });
-                      },
-                    ),
-                    duration: Duration(seconds: 2),
-                  );
-
-                  Scaffold.of(context).removeCurrentSnackBar();
-                  Scaffold.of(context).showSnackBar(snack);
-                });
+            Scaffold.of(context).removeCurrentSnackBar();
+            Scaffold.of(context).showSnackBar(snack);
+          });
         },
       ),
     );

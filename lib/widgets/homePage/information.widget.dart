@@ -33,9 +33,9 @@ class Information extends StatelessWidget {
               style: isClassField
                   ? TextStyle(
                       fontSize: 20,
-                      color: Colors.black,
+                      color: Colors.white,
                     )
-                  : TextStyle(fontSize: 16, color: Colors.grey),
+                  : TextStyle(fontSize: 16, color: Colors.white60),
             ),
           ),
         ],

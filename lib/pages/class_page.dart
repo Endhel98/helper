@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:helper/functionsJson/functions.dart';
-import 'package:helper/widgets/classPage/textfield_classPage.widget.dart';
+import 'package:helper/widgets/classPage/inputField.dart';
 
 class ClassPage extends StatefulWidget {
   @override
@@ -55,34 +55,17 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.8,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         centerTitle: true,
         iconTheme: IconThemeData(
-          color: Colors.deepPurpleAccent,
+          color: Colors.white,
         ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "HELPER",
-              style: TextStyle(
-                color: Colors.deepPurpleAccent,
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-              ),
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Icon(
-              Icons.import_contacts,
-              color: Colors.deepPurpleAccent,
-              size: 35,
-            )
-          ],
+        title: Padding(
+          padding: const EdgeInsets.only(top: 15),
+          child: Image.asset("images/logo.png"),
         ),
         actions: <Widget>[
           IconButton(
@@ -100,49 +83,57 @@ class _ClassPageState extends State<ClassPage> {
             Navigator.pop(context, _toDoList);
           }
         },
-        backgroundColor: Colors.deepPurpleAccent,
+        elevation: 0,
+        backgroundColor: Colors.white.withOpacity(0.15),
         child: Icon(
           Icons.save,
           color: Colors.white,
           size: 30,
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.only(top: 20),
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(10),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                TextFieldClassPage(
-                  controller: _classController,
-                  message: "Informe o nome da Disciplina!",
-                  labelText: "Disciplina",
-                ),
-                TextFieldClassPage(
-                  controller: _professorController,
-                  message: "Informe o nome do Professor!",
-                  labelText: "Professor",
-                ),
-                TextFieldClassPage(
-                  controller: _classRomController,
-                  message: "Informe o número da Sala!",
-                  labelText: "Sala",
-                ),
-                TextFieldClassPage(
-                  controller: _firstHourController,
-                  message: "Informe o horário!",
-                  labelText: "Horário do primeiro dia",
-                ),
-                TextFieldClassPage(
-                  controller: _secondHourController,
-                  message: "Informe o horário!",
-                  labelText: "Horário do segundo dia",
-                ),
-              ],
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/background.jpg"),
+            fit: BoxFit.fill,
+          ),
+        ),
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            padding: EdgeInsets.only(right: 25, left: 25, top: 100),
+            children: <Widget>[
+              InputField(
+                hint: "Disciplina",
+                icon: Icons.school,
+                controller: _classController,
+                message: "Informe o nome da Disciplina!",
+              ),
+              InputField(
+                hint: "Professor",
+                icon: Icons.person_outline,
+                controller: _professorController,
+                message: "Informe o nome do Professor!",
+              ),
+              InputField(
+                hint: "Sala",
+                icon: Icons.class_,
+                controller: _classRomController,
+                message: "Informe o número da Sala!",
+              ),
+              InputField(
+                hint: "1º Horário",
+                icon: Icons.watch_later,
+                controller: _firstHourController,
+                message: "Informe o 1º horário!",
+              ),
+              InputField(
+                hint: "2º Horário",
+                icon: Icons.watch_later,
+                controller: _secondHourController,
+                message: "Informe o 2º horário!",
+              ),
+            ],
           ),
         ),
       ),

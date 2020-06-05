@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:helper/animations/growTransition.dart';
 import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/pages/class_info_page.dart';
@@ -24,6 +25,8 @@ class _MainPageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
+
+    changeStatusBar();
 
     controller = AnimationController(
       vsync: this,
@@ -51,10 +54,20 @@ class _MainPageState extends State<HomePage>
     super.dispose();
   }
 
+  changeStatusBar() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+    ));
+  }
+
+  rollBackStatusBar() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+      extendBody: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,

@@ -55,7 +55,7 @@ class _MainPageState extends State<HomePage>
   }
 
   void changeStatusBar() {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.black,
     ));
@@ -65,7 +65,6 @@ class _MainPageState extends State<HomePage>
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
@@ -76,12 +75,11 @@ class _MainPageState extends State<HomePage>
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white.withOpacity(0.15),
         elevation: 0,
         child: Icon(
-          Icons.add_circle,
+          Icons.add,
           color: Colors.white,
-          size: 50,
         ),
         onPressed: () {
           _showClassPage();

@@ -30,7 +30,7 @@ class _MainPageState extends State<HomePage>
 
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
+      duration: Duration(seconds: 10),
     );
     animation = CurvedAnimation(parent: controller, curve: Curves.elasticOut)
       ..addStatusListener((status) {
@@ -54,20 +54,17 @@ class _MainPageState extends State<HomePage>
     super.dispose();
   }
 
-  changeStatusBar() {
+  void changeStatusBar() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.black,
     ));
   }
-
-  rollBackStatusBar() {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      extendBody: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,

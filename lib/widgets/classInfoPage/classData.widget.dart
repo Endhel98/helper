@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helper/widgets/classInfoPage/fieldTitle.widget.dart';
+import 'package:helper/widgets/classInfoPage/inputField.dart';
 
 class ClassData extends StatelessWidget {
   final professorController;
@@ -23,147 +24,37 @@ class ClassData extends StatelessWidget {
     return Column(
       children: <Widget>[
         FieldTitle(title: "Professor"),
-        TextFormField(
+        InputField(
+          label: "Nome",
           controller: professorController,
-          validator: (value) {
-            if (value.isEmpty) {
-              return 'Campo Obrigatório!';
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            border: InputBorder.none,
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Nome',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-          ),
-          style: TextStyle(fontSize: 16),
+          message: "Informe o nome do Professor!",
         ),
-        TextField(
+        InputField(
+          label: "Email",
           controller: emailController,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            border: InputBorder.none,
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Email',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-          ),
-          style: TextStyle(fontSize: 16),
         ),
-        TextField(
+        InputField(
+          label: "Sala",
           controller: attendanceRoomController,
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            border: InputBorder.none,
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Sala',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-          ),
-          style: TextStyle(fontSize: 16),
         ),
         Divider(color: Colors.transparent),
         FieldTitle(title: "Sala"),
-        TextFormField(
+        InputField(
+          label: "Num",
           controller: classRomController,
-          validator: (value) {
-            if (value.isEmpty) {
-              return 'Campo Obrigatório!';
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            border: InputBorder.none,
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                'Num',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-          ),
-          style: TextStyle(fontSize: 16),
+          message: "Informe o número da Sala!",
         ),
         Divider(color: Colors.transparent),
         FieldTitle(title: "Horário"),
-        TextFormField(
+        InputField(
+          label: "1º Dia",
           controller: firstHourController,
-          validator: (value) {
-            if (value.isEmpty) {
-              return 'Campo Obrigatório!';
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            border: InputBorder.none,
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                '1º Dia',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-          ),
-          style: TextStyle(fontSize: 16),
+          message: "Informe o 1º Horário!",
         ),
-        TextFormField(
+        InputField(
+          label: "2º Dia",
           controller: secondHourController,
-          validator: (value) {
-            if (value.isEmpty) {
-              return 'Campo Obrigatório!';
-            }
-            return null;
-          },
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.white,
-            border: InputBorder.none,
-            prefixIcon: Padding(
-              padding: EdgeInsets.all(15),
-              child: Text(
-                '2º Dia',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey[600],
-                ),
-              ),
-            ),
-          ),
-          style: TextStyle(fontSize: 16),
+          message: "Informe o 2º Horário!",
         ),
       ],
     );

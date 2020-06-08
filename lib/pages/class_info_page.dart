@@ -132,59 +132,45 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        child: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0.8,
-          iconTheme: IconThemeData(
-            color: Colors.deepPurpleAccent,
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "HELPER",
-                style: TextStyle(
-                  color: Colors.deepPurpleAccent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                ),
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Icon(
-                Icons.import_contacts,
-                color: Colors.deepPurpleAccent,
-                size: 35,
-              )
-            ],
-          ),
-          actions: <Widget>[
-            PopupMenuButton<Options>(
-              itemBuilder: (context) => <PopupMenuEntry<Options>>[
-                const PopupMenuItem<Options>(
-                  child: Text("Limpar todos os campos"),
-                  value: Options.cleanFields,
-                ),
-                const PopupMenuItem<Options>(
-                  child: Text("Zerar Faltas"),
-                  value: Options.resetAbsenses,
-                ),
-                const PopupMenuItem<Options>(
-                  child: Text("Excluir Matéria"),
-                  value: Options.deleteClass,
-                ),
-              ],
-              onSelected: _options,
-            )
-          ],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.white,
         ),
-        preferredSize: Size.fromHeight(50),
+        titleSpacing: 0,
+        title: Padding(
+          padding: EdgeInsets.only(top: 20),
+          child: Image.asset(
+            "images/logo.png",
+            height: 300,
+          ),
+        ),
+        actions: <Widget>[
+          PopupMenuButton<Options>(
+            itemBuilder: (context) => <PopupMenuEntry<Options>>[
+              const PopupMenuItem<Options>(
+                child: Text("Limpar todos os campos"),
+                value: Options.cleanFields,
+              ),
+              const PopupMenuItem<Options>(
+                child: Text("Zerar Faltas"),
+                value: Options.resetAbsenses,
+              ),
+              const PopupMenuItem<Options>(
+                child: Text("Excluir Matéria"),
+                value: Options.deleteClass,
+              ),
+            ],
+            onSelected: _options,
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: Colors.white.withOpacity(0.15),
+        elevation: 0,
         onPressed: () {
           if (_formKey.currentState.validate()) {
             setState(() {
@@ -198,12 +184,18 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
           color: Colors.white,
         ),
       ),
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/background.jpg"),
+            fit: BoxFit.fill,
+          ),
+        ),
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: EdgeInsets.all(30),
-            child: Column(
+            padding: EdgeInsets.only(top: 20, left: 25, right: 25),
+            child: ListView(
               children: <Widget>[
                 ClassData(
                   attendanceRoomController: _attendanceRoomController,
@@ -222,7 +214,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     IconButton(
                       icon: Icon(
                         Icons.keyboard_arrow_left,
-                        color: Colors.grey,
+                        color: Colors.white70,
                         size: 30,
                       ),
                       onPressed: () {
@@ -234,14 +226,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     ),
                     Text(
                       _editedClass['absenses'].toString(),
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                     IconButton(
                       icon: Icon(
                         Icons.keyboard_arrow_right,
-                        color: Colors.grey,
+                        color: Colors.white70,
                         size: 30,
                       ),
                       onPressed: () {
@@ -258,16 +248,19 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 Container(
                   height: 500,
                   width: 500,
-                  padding: EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: TextField(
                     maxLines: 100,
                     controller: _annotationsController,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Colors.grey[100],
+                      fillColor: Colors.white.withOpacity(0.15),
                       border: InputBorder.none,
                     ),
-                    style: TextStyle(fontSize: 16),
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],

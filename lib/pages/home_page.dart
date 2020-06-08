@@ -88,7 +88,7 @@ class _MainPageState extends State<HomePage>
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background.jpg"),
+            image: AssetImage("images/background.webp"),
             fit: BoxFit.fill,
           ),
         ),

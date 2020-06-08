@@ -34,8 +34,13 @@ class Information extends StatelessWidget {
                   ? TextStyle(
                       fontSize: 20,
                       color: Colors.white,
+                      fontWeight: FontWeight.bold,
                     )
-                  : TextStyle(fontSize: 16, color: Colors.white60),
+                  : TextStyle(
+                      fontSize: 16,
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w900,
+                    ),
             ),
           ),
         ],

@@ -71,7 +71,9 @@ class _MainPageState extends State<HomePage>
         elevation: 0,
         title: Padding(
           padding: const EdgeInsets.only(top: 15),
-          child: Image.asset("images/logo.png"),
+          child: Image.asset(
+            "images/logo.png",
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

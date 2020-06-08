@@ -208,7 +208,7 @@ class _MainPageState extends State<HomePage>
                   Text("Disciplina \"${_lastRemoved['class']}\" removida!"),
               action: SnackBarAction(
                 label: "Desfazer",
-                textColor: Colors.deepPurpleAccent,
+                textColor: Colors.white70,
                 onPressed: () {
                   setState(() {
                     _toDoList.insert(_lastRemovedPos, _lastRemoved);

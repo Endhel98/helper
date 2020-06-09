@@ -84,7 +84,7 @@ class _ClassPageState extends State<ClassPage> {
           }
         },
         elevation: 0,
-        backgroundColor: Colors.white.withOpacity(0.15),
+        backgroundColor: Colors.white.withOpacity(0.2),
         child: Icon(
           Icons.save,
           color: Colors.white,
@@ -94,7 +94,7 @@ class _ClassPageState extends State<ClassPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background.webp"),
+            image: AssetImage("images/background.jpg"),
             fit: BoxFit.fill,
           ),
         ),
@@ -113,25 +113,25 @@ class _ClassPageState extends State<ClassPage> {
                 hint: "Professor",
                 icon: Icons.person_outline,
                 controller: _professorController,
-                message: "Informe o nome do Professor!",
+                //message: "Informe o nome do Professor!",
               ),
               InputField(
                 hint: "Sala",
                 icon: Icons.class_,
                 controller: _classRomController,
-                message: "Informe o número da Sala!",
+                //message: "Informe o número da Sala!",
               ),
               InputField(
                 hint: "1º Horário",
                 icon: Icons.watch_later,
                 controller: _firstHourController,
-                message: "Informe o 1º horário!",
+                //message: "Informe o 1º horário!",
               ),
               InputField(
                 hint: "2º Horário",
                 icon: Icons.watch_later,
                 controller: _secondHourController,
-                message: "Informe o 2º horário!",
+                //message: "Informe o 2º horário!",
               ),
             ],
           ),

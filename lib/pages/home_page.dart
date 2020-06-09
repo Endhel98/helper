@@ -77,7 +77,7 @@ class _MainPageState extends State<HomePage>
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white.withOpacity(0.15),
+        backgroundColor: Colors.white.withOpacity(0.2),
         elevation: 0,
         child: Icon(
           Icons.add,
@@ -90,7 +90,9 @@ class _MainPageState extends State<HomePage>
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background.webp"),
+            image: AssetImage(
+              "images/background.jpg",
+            ),
             fit: BoxFit.fill,
           ),
         ),
@@ -125,14 +127,14 @@ class _MainPageState extends State<HomePage>
       child: Dismissible(
         key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
         background: Container(
-          color: Colors.transparent.withOpacity(0.3),
+          color: Colors.transparent.withOpacity(0.5),
           child: Align(
             alignment: Alignment(-0.9, 0.0),
             child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
         secondaryBackground: Container(
-          color: Colors.transparent.withOpacity(0.3),
+          color: Colors.transparent.withOpacity(0.2),
           child: Align(
             alignment: Alignment(0.9, 0.0),
             child: Icon(Icons.delete, color: Colors.white),
@@ -140,7 +142,7 @@ class _MainPageState extends State<HomePage>
         ),
         direction: DismissDirection.horizontal,
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(8.0),
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
@@ -168,25 +170,33 @@ class _MainPageState extends State<HomePage>
                       isClassField: true,
                     ),
                     Information(
-                      info: _toDoList[index]["professor"],
+                      info: _toDoList[index]["professor"] != ""
+                          ? _toDoList[index]["professor"]
+                          : "--",
                       color: Colors.red,
                       icon: Icons.person_pin,
                       isClassField: false,
                     ),
                     Information(
-                      info: _toDoList[index]["classRom"],
+                      info: _toDoList[index]["classRom"] != ""
+                          ? _toDoList[index]["classRom"]
+                          : "--",
                       color: Colors.yellow,
                       icon: Icons.class_,
                       isClassField: false,
                     ),
                     Information(
-                      info: _toDoList[index]["firstHour"],
+                      info: _toDoList[index]["firstHour"] != ""
+                          ? _toDoList[index]["firstHour"]
+                          : "--",
                       color: Colors.black,
                       icon: Icons.watch_later,
                       isClassField: false,
                     ),
                     Information(
-                      info: _toDoList[index]["secondHour"],
+                      info: _toDoList[index]["secondHour"] != ""
+                          ? _toDoList[index]["secondHour"]
+                          : "--",
                       color: Colors.blue,
                       icon: Icons.watch_later,
                       isClassField: false,

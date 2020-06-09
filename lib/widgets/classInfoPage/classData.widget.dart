@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helper/widgets/classInfoPage/fieldTitle.widget.dart';
-import 'package:helper/widgets/classInfoPage/inputField.dart';
+import 'package:helper/widgets/classPage/inputField.dart';
 
 class ClassData extends StatelessWidget {
   final professorController;
@@ -9,8 +9,10 @@ class ClassData extends StatelessWidget {
   final classRomController;
   final firstHourController;
   final secondHourController;
+  final classController;
 
   ClassData({
+    @required this.classController,
     @required this.attendanceRoomController,
     @required this.classRomController,
     @required this.emailController,
@@ -23,6 +25,15 @@ class ClassData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        FieldTitle(title: "Disciplina"),
+        InputField(
+          label: "Nome",
+          controller: classController,
+          message: "Informe o nome da Disciplina!",
+        ),
+        SizedBox(
+          height: 15,
+        ),
         FieldTitle(title: "Professor"),
         InputField(
           label: "Nome",

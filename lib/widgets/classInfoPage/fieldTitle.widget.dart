@@ -8,15 +8,15 @@ class FieldTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white.withOpacity(0.15),
+      color: Colors.white.withOpacity(0.2),
       height: 27,
       alignment: Alignment(0, 0),
       child: Text(
         title,
         style: TextStyle(
-          color: Colors.white60,
+          color: Colors.white70,
           fontSize: 22,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

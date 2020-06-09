@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helper/functionsJson/functions.dart';
+import 'package:helper/widgets/classInfoPage/annotation.widget.dart';
 import 'package:helper/widgets/classInfoPage/classData.widget.dart';
 import 'package:helper/widgets/classInfoPage/fieldTitle.widget.dart';
 
@@ -21,6 +22,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   List _editedList;
   int _index;
 
+  final _classController = TextEditingController();
   final _professorController = TextEditingController();
   final _classRomController = TextEditingController();
   final _firstHourController = TextEditingController();
@@ -39,20 +41,18 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     _editedList = widget.toDoList;
     _index = widget.index;
 
-    if (_editedClass["professor"] != null)
-      _professorController.text = _editedClass["professor"];
-    if (_editedClass["classRom"] != null)
-      _classRomController.text = _editedClass["classRom"];
-    if (_editedClass["firstHour"] != null)
-      _firstHourController.text = _editedClass["firstHour"];
-    if (_editedClass["secondHour"] != null)
-      _secondHourController.text = _editedClass["secondHour"];
+    _classController.text = _editedClass["class"];
+    _professorController.text = _editedClass["professor"];
+    _classRomController.text = _editedClass["classRom"];
+    _firstHourController.text = _editedClass["firstHour"];
+    _secondHourController.text = _editedClass["secondHour"];
+
     if (_editedClass["attendanceRoom"] != null)
       _attendanceRoomController.text = _editedClass["attendanceRoom"];
-    else
-      _attendanceRoomController.text = "";
+
     if (_editedClass["email"] != null)
       _emailController.text = _editedClass["email"];
+
     if (_editedClass["annotations"] != null)
       _annotationsController.text = _editedClass["annotations"];
   }
@@ -90,6 +90,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
           _attendanceRoomController.text = "";
           _annotationsController.text = "";
           _emailController.text = "";
+          _classController.text = "";
         });
         break;
       case Options.resetAbsenses:
@@ -187,17 +188,18 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/background.webp"),
+            image: AssetImage("images/background.jpg"),
             fit: BoxFit.fill,
           ),
         ),
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: EdgeInsets.only(top: 20, left: 25, right: 25),
+            padding: EdgeInsets.only(top: 10, left: 25, right: 25),
             child: ListView(
               children: <Widget>[
                 ClassData(
+                  classController: _classController,
                   attendanceRoomController: _attendanceRoomController,
                   classRomController: _classRomController,
                   emailController: _emailController,
@@ -245,23 +247,8 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 Divider(color: Colors.transparent),
                 FieldTitle(title: "Anotações"),
                 Divider(color: Colors.transparent),
-                Container(
-                  height: 500,
-                  width: 500,
-                  padding: EdgeInsets.only(top: 20, bottom: 20),
-                  child: TextField(
-                    maxLines: 100,
-                    controller: _annotationsController,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white.withOpacity(0.15),
-                      border: InputBorder.none,
-                    ),
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
+                Annotation(
+                  controller: _annotationsController,
                 ),
               ],
             ),

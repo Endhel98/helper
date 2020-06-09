@@ -27,19 +27,18 @@ class Information extends StatelessWidget {
             ),
           ),
           Container(
-            width: 285,
+            width: 275,
             child: Text(
               info,
               style: isClassField
                   ? TextStyle(
                       fontSize: 20,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     )
                   : TextStyle(
                       fontSize: 16,
                       color: Colors.white70,
-                      fontWeight: FontWeight.w900,
                     ),
             ),
           ),

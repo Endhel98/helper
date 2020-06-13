@@ -16,12 +16,12 @@ class Annotation extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.white.withOpacity(0.2),
+          fillColor: Colors.white,
           border: InputBorder.none,
         ),
         style: TextStyle(
           fontSize: 16,
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
     );

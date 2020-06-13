@@ -29,6 +29,7 @@ class InputField extends StatelessWidget {
           },
           style: TextStyle(
             color: Colors.white,
+            fontSize: 20,
           ),
           decoration: InputDecoration(
             prefixIcon: label != null
@@ -37,7 +38,7 @@ class InputField extends StatelessWidget {
                     child: Text(
                       label,
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 14,
                         color: Colors.white70,
                       ),
                     ),

@@ -77,8 +77,7 @@ class _MainPageState extends State<HomePage>
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white.withOpacity(0.2),
-        elevation: 0,
+        backgroundColor: Colors.blue[700],
         child: Icon(
           Icons.add,
           color: Colors.white,
@@ -93,7 +92,7 @@ class _MainPageState extends State<HomePage>
             image: AssetImage(
               "images/background.jpg",
             ),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
         child: _toDoList.isEmpty
@@ -127,82 +126,74 @@ class _MainPageState extends State<HomePage>
       child: Dismissible(
         key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
         background: Container(
-          color: Colors.transparent.withOpacity(0.5),
+          color: Colors.red.withOpacity(0.8),
           child: Align(
             alignment: Alignment(-0.9, 0.0),
             child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
         secondaryBackground: Container(
-          color: Colors.transparent.withOpacity(0.2),
+          color: Colors.red.withOpacity(0.8),
           child: Align(
             alignment: Alignment(0.9, 0.0),
             child: Icon(Icons.delete, color: Colors.white),
           ),
         ),
         direction: DismissDirection.horizontal,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.white38,
-                width: 0.5,
-              ),
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.circular(20),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Card(
+            elevation: 0,
+            color: Colors.blue.withOpacity(0.8),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
             ),
-            child: Card(
-              elevation: 0,
-              color: Colors.transparent,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Information(
-                      info: _toDoList[index]["class"],
-                      color: Colors.green,
-                      icon: Icons.school,
-                      isClassField: true,
-                    ),
-                    Information(
-                      info: _toDoList[index]["professor"] != ""
-                          ? _toDoList[index]["professor"]
-                          : "--",
-                      color: Colors.red,
-                      icon: Icons.person_pin,
-                      isClassField: false,
-                    ),
-                    Information(
-                      info: _toDoList[index]["classRom"] != ""
-                          ? _toDoList[index]["classRom"]
-                          : "--",
-                      color: Colors.yellow,
-                      icon: Icons.class_,
-                      isClassField: false,
-                    ),
-                    Information(
-                      info: _toDoList[index]["firstHour"] != ""
-                          ? _toDoList[index]["firstHour"]
-                          : "--",
-                      color: Colors.black,
-                      icon: Icons.watch_later,
-                      isClassField: false,
-                    ),
-                    Information(
-                      info: _toDoList[index]["secondHour"] != ""
-                          ? _toDoList[index]["secondHour"]
-                          : "--",
-                      color: Colors.blue,
-                      icon: Icons.watch_later,
-                      isClassField: false,
-                    ),
-                  ],
-                ),
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Information(
+                    info: _toDoList[index]["class"],
+                    color: Colors.green,
+                    icon: Icons.school,
+                    isClassField: true,
+                  ),
+                  Information(
+                    info: _toDoList[index]["professor"] != ""
+                        ? _toDoList[index]["professor"]
+                        : "--",
+                    color: Colors.red,
+                    icon: Icons.person_pin,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["classRom"] != ""
+                        ? _toDoList[index]["classRom"]
+                        : "--",
+                    color: Colors.yellow,
+                    icon: Icons.class_,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["firstHour"] != ""
+                        ? _toDoList[index]["firstHour"]
+                        : "--",
+                    color: Colors.black,
+                    icon: Icons.watch_later,
+                    isClassField: false,
+                  ),
+                  Information(
+                    info: _toDoList[index]["secondHour"] != ""
+                        ? _toDoList[index]["secondHour"]
+                        : "--",
+                    color: Colors.purple,
+                    icon: Icons.watch_later,
+                    isClassField: false,
+                  ),
+                ],
               ),
             ),
           ),
@@ -220,7 +211,7 @@ class _MainPageState extends State<HomePage>
                   Text("Disciplina \"${_lastRemoved['class']}\" removida!"),
               action: SnackBarAction(
                 label: "Desfazer",
-                textColor: Colors.white70,
+                textColor: Colors.blue[800],
                 onPressed: () {
                   setState(() {
                     _toDoList.insert(_lastRemovedPos, _lastRemoved);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helper/functionsJson/functions.dart';
 import 'package:helper/widgets/classInfoPage/annotation.widget.dart';
+import 'package:helper/widgets/classInfoPage/app_bar.dart';
 import 'package:helper/widgets/classInfoPage/classData.widget.dart';
 import 'package:helper/widgets/classInfoPage/fieldTitle.widget.dart';
 
@@ -11,7 +12,11 @@ class ClassInfoPage extends StatefulWidget {
   final List toDoList;
   final int index;
 
-  ClassInfoPage({this.toDoClass, this.toDoList, this.index});
+  ClassInfoPage({
+    this.toDoClass,
+    this.toDoList,
+    this.index,
+  });
 
   @override
   _ClassInfoPageState createState() => _ClassInfoPageState();
@@ -82,16 +87,14 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   void _options(Options result) {
     switch (result) {
       case Options.cleanFields:
-        setState(() {
-          _professorController.text = "";
-          _classRomController.text = "";
-          _firstHourController.text = "";
-          _secondHourController.text = "";
-          _attendanceRoomController.text = "";
-          _annotationsController.text = "";
-          _emailController.text = "";
-          _classController.text = "";
-        });
+        _professorController.text = "";
+        _classRomController.text = "";
+        _firstHourController.text = "";
+        _secondHourController.text = "";
+        _attendanceRoomController.text = "";
+        _annotationsController.text = "";
+        _emailController.text = "";
+        _classController.text = "";
         break;
       case Options.resetAbsenses:
         setState(() {
@@ -108,13 +111,19 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                     Text("Se sim, a matéria será excluída permanentemente!"),
                 actions: <Widget>[
                   FlatButton(
-                    child: Text("Cancelar"),
+                    child: Text(
+                      "Cancelar",
+                      style: TextStyle(color: Colors.red[800]),
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                     },
                   ),
                   FlatButton(
-                    child: Text("Sim"),
+                    child: Text(
+                      "Sim",
+                      style: TextStyle(color: Colors.red[800]),
+                    ),
                     onPressed: () {
                       widget.toDoList.remove(_editedClass);
                       saveData(widget.toDoList);
@@ -135,42 +144,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-        titleSpacing: 0,
-        title: Padding(
-          padding: EdgeInsets.only(top: 20),
-          child: Image.asset(
-            "images/logo.png",
-            height: 300,
-          ),
-        ),
-        actions: <Widget>[
-          PopupMenuButton<Options>(
-            itemBuilder: (context) => <PopupMenuEntry<Options>>[
-              const PopupMenuItem<Options>(
-                child: Text("Limpar todos os campos"),
-                value: Options.cleanFields,
-              ),
-              const PopupMenuItem<Options>(
-                child: Text("Zerar Faltas"),
-                value: Options.resetAbsenses,
-              ),
-              const PopupMenuItem<Options>(
-                child: Text("Excluir Matéria"),
-                value: Options.deleteClass,
-              ),
-            ],
-            onSelected: _options,
-          )
-        ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(55),
+        child: AppBarWidget(function: _options),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white.withOpacity(0.15),
+        backgroundColor: Colors.blue[700],
         elevation: 0,
         onPressed: () {
           if (_formKey.currentState.validate()) {
@@ -189,68 +168,78 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/background.jpg"),
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
           ),
         ),
-        child: Form(
-          key: _formKey,
-          child: Padding(
-            padding: EdgeInsets.only(top: 10, left: 25, right: 25),
-            child: ListView(
-              children: <Widget>[
-                ClassData(
-                  classController: _classController,
-                  attendanceRoomController: _attendanceRoomController,
-                  classRomController: _classRomController,
-                  emailController: _emailController,
-                  firstHourController: _firstHourController,
-                  professorController: _professorController,
-                  secondHourController: _secondHourController,
-                ),
-                Divider(color: Colors.transparent),
-                FieldTitle(title: "Faltas"),
-                Divider(color: Colors.transparent),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(
-                        Icons.keyboard_arrow_left,
-                        color: Colors.white70,
-                        size: 30,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 100),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              ),
+              color: Colors.blue.withOpacity(0.8),
+            ),
+            child: Form(
+              key: _formKey,
+              child: ListView(
+                padding: EdgeInsets.only(left: 25, right: 25, top: 15),
+                children: <Widget>[
+                  ClassData(
+                    classController: _classController,
+                    attendanceRoomController: _attendanceRoomController,
+                    classRomController: _classRomController,
+                    emailController: _emailController,
+                    firstHourController: _firstHourController,
+                    professorController: _professorController,
+                    secondHourController: _secondHourController,
+                  ),
+                  Divider(color: Colors.transparent),
+                  FieldTitle(title: "Faltas"),
+                  Divider(color: Colors.transparent),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(
+                          Icons.keyboard_arrow_left,
+                          color: Colors.white70,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            if (_editedClass["absenses"] > 0)
+                              _editedClass["absenses"]--;
+                          });
+                        },
                       ),
-                      onPressed: () {
-                        setState(() {
-                          if (_editedClass["absenses"] > 0)
-                            _editedClass["absenses"]--;
-                        });
-                      },
-                    ),
-                    Text(
-                      _editedClass['absenses'].toString(),
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        Icons.keyboard_arrow_right,
-                        color: Colors.white70,
-                        size: 30,
+                      Text(
+                        _editedClass['absenses'].toString(),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          _editedClass["absenses"]++;
-                        });
-                      },
-                    ),
-                  ],
-                ),
-                Divider(color: Colors.transparent),
-                FieldTitle(title: "Anotações"),
-                Divider(color: Colors.transparent),
-                Annotation(
-                  controller: _annotationsController,
-                ),
-              ],
+                      IconButton(
+                        icon: Icon(
+                          Icons.keyboard_arrow_right,
+                          color: Colors.white70,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _editedClass["absenses"]++;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  Divider(color: Colors.transparent),
+                  FieldTitle(title: "Anotações"),
+                  Divider(color: Colors.transparent),
+                  Annotation(
+                    controller: _annotationsController,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

@@ -38,7 +38,6 @@ class ClassData extends StatelessWidget {
         InputField(
           label: "Nome",
           controller: professorController,
-          message: "Informe o nome do Professor!",
         ),
         InputField(
           label: "Email",
@@ -53,19 +52,16 @@ class ClassData extends StatelessWidget {
         InputField(
           label: "Num",
           controller: classRomController,
-          message: "Informe o número da Sala!",
         ),
         Divider(color: Colors.transparent),
         FieldTitle(title: "Horário"),
         InputField(
           label: "1º Dia",
           controller: firstHourController,
-          message: "Informe o 1º Horário!",
         ),
         InputField(
           label: "2º Dia",
           controller: secondHourController,
-          message: "Informe o 2º Horário!",
         ),
       ],
     );

@@ -8,7 +8,10 @@ class FieldTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white.withOpacity(0.2),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(32),
+        color: Colors.white.withOpacity(0.2),
+      ),
       height: 27,
       alignment: Alignment(0, 0),
       child: Text(

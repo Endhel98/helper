@@ -10,16 +10,16 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Theme.of(context).primaryColor,
-      elevation: 0,
+      elevation: 0.0,
       iconTheme: IconThemeData(
         color: Colors.white,
       ),
-      titleSpacing: 0,
+      titleSpacing: 0.0,
       title: Padding(
-        padding: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.only(top: 20.0),
         child: Image.asset(
           "images/logo.png",
-          height: 300,
+          height: 300.0,
         ),
       ),
       actions: <Widget>[

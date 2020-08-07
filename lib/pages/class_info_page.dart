@@ -144,12 +144,12 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(55),
+        preferredSize: Size.fromHeight(55.0),
         child: AppBarWidget(function: _options),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue[600],
-        elevation: 0,
+        elevation: 0.0,
         onPressed: () {
           if (_formKey.currentState.validate()) {
             setState(() {
@@ -166,7 +166,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 20.0),
           children: <Widget>[
             ClassData(
               classController: _classController,
@@ -178,11 +178,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               secondHourController: _secondHourController,
             ),
             SizedBox(
-              height: 30,
+              height: 30.0,
             ),
             FieldTitle(title: "Faltas"),
             SizedBox(
-              height: 15,
+              height: 15.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -191,7 +191,7 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                   icon: Icon(
                     Icons.keyboard_arrow_left,
                     color: Colors.white70,
-                    size: 30,
+                    size: 30.0,
                   ),
                   onPressed: () {
                     setState(() {
@@ -202,13 +202,13 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
                 ),
                 Text(
                   _editedClass['absenses'].toString(),
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(fontSize: 20.0, color: Colors.white),
                 ),
                 IconButton(
                   icon: Icon(
                     Icons.keyboard_arrow_right,
                     color: Colors.white70,
-                    size: 30,
+                    size: 30.0,
                   ),
                   onPressed: () {
                     setState(() {
@@ -219,11 +219,11 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
               ],
             ),
             SizedBox(
-              height: 30,
+              height: 30.0,
             ),
             FieldTitle(title: "Anotações"),
             SizedBox(
-              height: 15,
+              height: 15.0,
             ),
             Annotation(
               controller: _annotationsController,

@@ -3,13 +3,13 @@ import 'package:helper/widgets/classInfoPage/fieldTitle.widget.dart';
 import 'package:helper/widgets/classPage/inputField.dart';
 
 class ClassData extends StatelessWidget {
-  final professorController;
-  final emailController;
-  final attendanceRoomController;
-  final classRomController;
-  final firstHourController;
-  final secondHourController;
-  final classController;
+  final TextEditingController professorController;
+  final TextEditingController emailController;
+  final TextEditingController attendanceRoomController;
+  final TextEditingController classRomController;
+  final TextEditingController firstHourController;
+  final TextEditingController secondHourController;
+  final TextEditingController classController;
 
   ClassData({
     @required this.classController,
@@ -32,7 +32,7 @@ class ClassData extends StatelessWidget {
           message: "Informe o nome da Disciplina!",
         ),
         SizedBox(
-          height: 30,
+          height: 30.0,
         ),
         FieldTitle(title: "Professor"),
         InputField(
@@ -56,7 +56,7 @@ class ClassData extends StatelessWidget {
           controller: classRomController,
         ),
         SizedBox(
-          height: 30,
+          height: 30.0,
         ),
         FieldTitle(title: "Horário"),
         InputField(

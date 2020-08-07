@@ -32,7 +32,7 @@ class ClassData extends StatelessWidget {
           message: "Informe o nome da Disciplina!",
         ),
         SizedBox(
-          height: 15,
+          height: 30,
         ),
         FieldTitle(title: "Professor"),
         InputField(
@@ -47,13 +47,17 @@ class ClassData extends StatelessWidget {
           label: "Sala",
           controller: attendanceRoomController,
         ),
-        Divider(color: Colors.transparent),
+        SizedBox(
+          height: 30,
+        ),
         FieldTitle(title: "Sala"),
         InputField(
           label: "Num",
           controller: classRomController,
         ),
-        Divider(color: Colors.transparent),
+        SizedBox(
+          height: 30,
+        ),
         FieldTitle(title: "Horário"),
         InputField(
           label: "1º Dia",

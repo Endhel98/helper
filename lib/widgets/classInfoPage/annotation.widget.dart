@@ -10,6 +10,10 @@ class Annotation extends StatelessWidget {
     return Container(
       height: 500,
       width: 500,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.white,
+      ),
       padding: EdgeInsets.only(top: 20, bottom: 20),
       child: TextField(
         maxLines: 100,

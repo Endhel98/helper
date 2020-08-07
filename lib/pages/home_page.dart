@@ -140,61 +140,56 @@ class _MainPageState extends State<HomePage>
           ),
         ),
         direction: DismissDirection.horizontal,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+        child: Card(
+          elevation: 0,
+          color: Colors.blue.withOpacity(0.8),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
           ),
-          child: Card(
-            elevation: 0,
-            color: Colors.blue.withOpacity(0.8),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Information(
-                    info: _toDoList[index]["class"],
-                    color: Colors.green,
-                    icon: Icons.school,
-                    isClassField: true,
-                  ),
-                  Information(
-                    info: _toDoList[index]["professor"] != ""
-                        ? _toDoList[index]["professor"]
-                        : "--",
-                    color: Colors.red,
-                    icon: Icons.person_pin,
-                    isClassField: false,
-                  ),
-                  Information(
-                    info: _toDoList[index]["classRom"] != ""
-                        ? _toDoList[index]["classRom"]
-                        : "--",
-                    color: Colors.yellow,
-                    icon: Icons.class_,
-                    isClassField: false,
-                  ),
-                  Information(
-                    info: _toDoList[index]["firstHour"] != ""
-                        ? _toDoList[index]["firstHour"]
-                        : "--",
-                    color: Colors.black,
-                    icon: Icons.watch_later,
-                    isClassField: false,
-                  ),
-                  Information(
-                    info: _toDoList[index]["secondHour"] != ""
-                        ? _toDoList[index]["secondHour"]
-                        : "--",
-                    color: Colors.purple,
-                    icon: Icons.watch_later,
-                    isClassField: false,
-                  ),
-                ],
-              ),
+          child: Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Information(
+                  info: _toDoList[index]["class"],
+                  color: Colors.green,
+                  icon: Icons.school,
+                  isClassField: true,
+                ),
+                Information(
+                  info: _toDoList[index]["professor"] != ""
+                      ? _toDoList[index]["professor"]
+                      : "--",
+                  color: Colors.red,
+                  icon: Icons.person_pin,
+                  isClassField: false,
+                ),
+                Information(
+                  info: _toDoList[index]["classRom"] != ""
+                      ? _toDoList[index]["classRom"]
+                      : "--",
+                  color: Colors.yellow,
+                  icon: Icons.class_,
+                  isClassField: false,
+                ),
+                Information(
+                  info: _toDoList[index]["firstHour"] != ""
+                      ? _toDoList[index]["firstHour"]
+                      : "--",
+                  color: Colors.black,
+                  icon: Icons.watch_later,
+                  isClassField: false,
+                ),
+                Information(
+                  info: _toDoList[index]["secondHour"] != ""
+                      ? _toDoList[index]["secondHour"]
+                      : "--",
+                  color: Colors.purple,
+                  icon: Icons.watch_later,
+                  isClassField: false,
+                ),
+              ],
             ),
           ),
         ),

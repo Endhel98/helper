@@ -29,12 +29,12 @@ class InputField extends StatelessWidget {
           },
           style: TextStyle(
             color: Colors.white,
-            fontSize: 20,
+            fontSize: 16,
           ),
           decoration: InputDecoration(
             prefixIcon: label != null
                 ? Padding(
-                    padding: EdgeInsets.only(top: 20, bottom: 10),
+                    padding: EdgeInsets.symmetric(vertical: 20),
                     child: Text(
                       label,
                       style: TextStyle(
@@ -66,7 +66,7 @@ class InputField extends StatelessWidget {
               left: 5,
             ),
             errorStyle: TextStyle(
-              color: Colors.red,
+              color: Colors.red[400],
               fontWeight: FontWeight.w700,
               letterSpacing: 0.5,
             ),

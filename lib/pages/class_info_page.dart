@@ -142,14 +142,13 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(55),
         child: AppBarWidget(function: _options),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue[700],
+        backgroundColor: Colors.blue[600],
         elevation: 0,
         onPressed: () {
           if (_formKey.currentState.validate()) {
@@ -164,84 +163,72 @@ class _ClassInfoPageState extends State<ClassInfoPage> {
           color: Colors.white,
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/background.jpg"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 100),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
-              ),
-              color: Colors.blue.withOpacity(0.8),
+      body: Form(
+        key: _formKey,
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          children: <Widget>[
+            ClassData(
+              classController: _classController,
+              attendanceRoomController: _attendanceRoomController,
+              classRomController: _classRomController,
+              emailController: _emailController,
+              firstHourController: _firstHourController,
+              professorController: _professorController,
+              secondHourController: _secondHourController,
             ),
-            child: Form(
-              key: _formKey,
-              child: ListView(
-                padding: EdgeInsets.only(left: 25, right: 25, top: 15),
-                children: <Widget>[
-                  ClassData(
-                    classController: _classController,
-                    attendanceRoomController: _attendanceRoomController,
-                    classRomController: _classRomController,
-                    emailController: _emailController,
-                    firstHourController: _firstHourController,
-                    professorController: _professorController,
-                    secondHourController: _secondHourController,
-                  ),
-                  Divider(color: Colors.transparent),
-                  FieldTitle(title: "Faltas"),
-                  Divider(color: Colors.transparent),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.keyboard_arrow_left,
-                          color: Colors.white70,
-                          size: 30,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            if (_editedClass["absenses"] > 0)
-                              _editedClass["absenses"]--;
-                          });
-                        },
-                      ),
-                      Text(
-                        _editedClass['absenses'].toString(),
-                        style: TextStyle(fontSize: 20, color: Colors.white),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.keyboard_arrow_right,
-                          color: Colors.white70,
-                          size: 30,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _editedClass["absenses"]++;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                  Divider(color: Colors.transparent),
-                  FieldTitle(title: "Anotações"),
-                  Divider(color: Colors.transparent),
-                  Annotation(
-                    controller: _annotationsController,
-                  ),
-                ],
-              ),
+            SizedBox(
+              height: 30,
             ),
-          ),
+            FieldTitle(title: "Faltas"),
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(
+                    Icons.keyboard_arrow_left,
+                    color: Colors.white70,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      if (_editedClass["absenses"] > 0)
+                        _editedClass["absenses"]--;
+                    });
+                  },
+                ),
+                Text(
+                  _editedClass['absenses'].toString(),
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.keyboard_arrow_right,
+                    color: Colors.white70,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _editedClass["absenses"]++;
+                    });
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            FieldTitle(title: "Anotações"),
+            SizedBox(
+              height: 15,
+            ),
+            Annotation(
+              controller: _annotationsController,
+            ),
+          ],
         ),
       ),
     );

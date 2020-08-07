@@ -9,7 +9,7 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Theme.of(context).primaryColor,
       elevation: 0,
       iconTheme: IconThemeData(
         color: Colors.white,

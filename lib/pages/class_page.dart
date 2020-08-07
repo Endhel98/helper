@@ -55,7 +55,7 @@ class _ClassPageState extends State<ClassPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -83,65 +83,45 @@ class _ClassPageState extends State<ClassPage> {
             Navigator.pop(context, _toDoList);
           }
         },
-        backgroundColor: Colors.blue[700],
+        backgroundColor: Colors.blue[600],
         child: Icon(
           Icons.save,
           color: Colors.white,
           size: 30,
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/background.jpg"),
-            fit: BoxFit.fill,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 100),
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue.withOpacity(0.8),
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(25),
-                topLeft: Radius.circular(25),
-              ),
+      body: Form(
+        key: _formKey,
+        child: ListView(
+          padding: EdgeInsets.only(right: 25, left: 25),
+          children: <Widget>[
+            InputField(
+              hint: "Disciplina",
+              icon: Icons.school,
+              controller: _classController,
+              message: "Informe o nome da Disciplina!",
             ),
-            child: Form(
-              key: _formKey,
-              child: ListView(
-                padding: EdgeInsets.only(right: 25, left: 25, top: 50),
-                children: <Widget>[
-                  InputField(
-                    hint: "Disciplina",
-                    icon: Icons.school,
-                    controller: _classController,
-                    message: "Informe o nome da Disciplina!",
-                  ),
-                  InputField(
-                    hint: "Professor",
-                    icon: Icons.person_outline,
-                    controller: _professorController,
-                  ),
-                  InputField(
-                    hint: "Sala",
-                    icon: Icons.class_,
-                    controller: _classRomController,
-                  ),
-                  InputField(
-                    hint: "1º Horário",
-                    icon: Icons.watch_later,
-                    controller: _firstHourController,
-                  ),
-                  InputField(
-                    hint: "2º Horário",
-                    icon: Icons.watch_later,
-                    controller: _secondHourController,
-                  ),
-                ],
-              ),
+            InputField(
+              hint: "Professor",
+              icon: Icons.person_outline,
+              controller: _professorController,
             ),
-          ),
+            InputField(
+              hint: "Sala",
+              icon: Icons.class_,
+              controller: _classRomController,
+            ),
+            InputField(
+              hint: "1º Horário",
+              icon: Icons.watch_later,
+              controller: _firstHourController,
+            ),
+            InputField(
+              hint: "2º Horário",
+              icon: Icons.watch_later,
+              controller: _secondHourController,
+            ),
+          ],
         ),
       ),
     );

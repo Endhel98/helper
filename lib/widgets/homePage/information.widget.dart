@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Information extends StatelessWidget {
-  final info;
-  final icon;
-  final color;
-  final isClassField;
+  final String info;
+  final IconData icon;
+  final Color color;
+  final bool isClassField;
 
   Information({
     @required this.info,
@@ -16,28 +16,28 @@ class Information extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 5, top: 5),
+      padding: EdgeInsets.symmetric(vertical: 5.0),
       child: Row(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(right: 10),
+            padding: EdgeInsets.only(right: 10.0),
             child: Icon(
               icon,
               color: color,
             ),
           ),
           Container(
-            width: 275,
+            width: 275.0,
             child: Text(
               info,
               style: isClassField
                   ? TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.0,
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
                     )
                   : TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.0,
                       color: Colors.white70,
                     ),
             ),

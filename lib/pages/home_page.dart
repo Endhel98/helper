@@ -26,7 +26,7 @@ class _MainPageState extends State<HomePage>
   void initState() {
     super.initState();
 
-    changeStatusBar();
+    _changeStatusBar();
 
     controller = AnimationController(
       vsync: this,
@@ -54,7 +54,7 @@ class _MainPageState extends State<HomePage>
     super.dispose();
   }
 
-  void changeStatusBar() {
+  void _changeStatusBar() {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.black,
@@ -68,9 +68,9 @@ class _MainPageState extends State<HomePage>
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        elevation: 0,
+        elevation: 0.0,
         title: Padding(
-          padding: const EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 15.0),
           child: Image.asset(
             "images/logo.png",
           ),
@@ -92,7 +92,7 @@ class _MainPageState extends State<HomePage>
             image: AssetImage(
               "images/background.jpg",
             ),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
         child: _toDoList.isEmpty
@@ -102,14 +102,14 @@ class _MainPageState extends State<HomePage>
               )
             : ListView.builder(
                 padding: EdgeInsets.only(top: 100.0),
-                itemBuilder: buildItem,
+                itemBuilder: _buildItem,
                 itemCount: _toDoList.length,
               ),
       ),
     );
   }
 
-  Widget buildItem(context, index) {
+  Widget _buildItem(context, index) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -141,15 +141,15 @@ class _MainPageState extends State<HomePage>
         ),
         direction: DismissDirection.horizontal,
         child: Card(
-          elevation: 0,
-          color: Colors.blue.withOpacity(0.8),
+          elevation: 0.0,
+          color: Theme.of(context).primaryColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(15.0),
           ),
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Information(
                   info: _toDoList[index]["class"],

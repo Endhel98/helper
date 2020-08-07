@@ -21,7 +21,7 @@ class _ClassPageState extends State<ClassPage> {
   void initState() {
     super.initState();
 
-    _classController.text = "";
+    _classController.clear();
 
     readData().then((data) {
       setState(() {
@@ -57,14 +57,14 @@ class _ClassPageState extends State<ClassPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        backgroundColor: Theme.of(context).primaryColor,
+        elevation: 0.0,
         centerTitle: true,
         iconTheme: IconThemeData(
           color: Colors.white,
         ),
         title: Padding(
-          padding: const EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 15.0),
           child: Image.asset("images/logo.png"),
         ),
         actions: <Widget>[
@@ -73,7 +73,7 @@ class _ClassPageState extends State<ClassPage> {
             onPressed: () {
               _cleanFields();
             },
-          )
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -87,13 +87,13 @@ class _ClassPageState extends State<ClassPage> {
         child: Icon(
           Icons.save,
           color: Colors.white,
-          size: 30,
+          size: 30.0,
         ),
       ),
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: EdgeInsets.only(right: 25, left: 25),
+          padding: EdgeInsets.symmetric(horizontal: 25),
           children: <Widget>[
             InputField(
               hint: "Disciplina",

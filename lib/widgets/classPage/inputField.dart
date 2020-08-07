@@ -29,16 +29,16 @@ class InputField extends StatelessWidget {
           },
           style: TextStyle(
             color: Colors.white,
-            fontSize: 16,
+            fontSize: 16.0,
           ),
           decoration: InputDecoration(
             prefixIcon: label != null
                 ? Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                    padding: EdgeInsets.symmetric(vertical: 20.0),
                     child: Text(
                       label,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.0,
                         color: Colors.white70,
                       ),
                     ),
@@ -46,7 +46,7 @@ class InputField extends StatelessWidget {
                 : null,
             icon: hint != null
                 ? Padding(
-                    padding: const EdgeInsets.only(top: 35, bottom: 10),
+                    padding: const EdgeInsets.only(top: 35.0, bottom: 10.0),
                     child: Icon(
                       icon,
                       color: Colors.white,
@@ -57,13 +57,13 @@ class InputField extends StatelessWidget {
             hintText: hint,
             hintStyle: TextStyle(
               color: Colors.white,
-              fontSize: 15,
+              fontSize: 15.0,
             ),
             contentPadding: EdgeInsets.only(
-              top: 20,
-              right: 30,
-              bottom: 10,
-              left: 5,
+              top: 20.0,
+              right: 30.0,
+              bottom: 10.0,
+              left: 5.0,
             ),
             errorStyle: TextStyle(
               color: Colors.red[400],

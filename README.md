@@ -2,11 +2,11 @@
 Mobile application to help college students save the necessary information for each subject in their academic semester.
 
 ## Screenshot
- <img src="images/Screenshot_1.png" height="400" width="240"> 
- <img src="images/Screenshot_2.png" height="400" width="240">
- <img src="images/Screenshot_3.png" height="400" width="240"> 
- <img src="images/Screenshot_4.png" height="400" width="240">
- <img src="images/Screenshot_5.png" height="400" width="240">
+ <img src="images/Screenshot_1.jpg" height="400" width="240"> 
+ <img src="images/Screenshot_2.jpg" height="400" width="240">
+ <img src="images/Screenshot_3.jpg" height="400" width="240"> 
+ <img src="images/Screenshot_4.jpg" height="400" width="240">
+ <img src="images/Screenshot_5.jpg" height="400" width="240">
 
 ## Getting Started
  This project is a starting point for a Flutter application.
